@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhiteBack">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="24dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="12sp"
+                android:layout_marginEnd="12sp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:sliderIndicatorGravity="center_horizontal|top"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="3dp"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="#5A5A5A"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderScrollTimeInSec="1"
+                    app:sliderStartAutoCycle="true" />
+
+            </androidx.cardview.widget.CardView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="غذا های امروز"
+                style="@style/BoldTextStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="12dp"
+                android:textSize="18sp"
+                android:layout_marginTop="12dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_settings"
+                android:id="@+id/btn_setting_home"
+                app:tint="@color/colorTextDark"
+                android:layout_margin="8dp"
+                android:padding="8dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_list_reserve"
+                app:srcCompat="@drawable/ic_reservs"
+                android:layout_toEndOf="@+id/btn_setting_home"
+                app:tint="@color/colorTextDark"
+                android:layout_margin="8dp"
+                android:padding="8dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_toEndOf="@+id/btn_list_reserve"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_chat"
+                app:tint="@color/colorTextDark" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="انواع غذا ها"
+            android:textSize="18sp"
+            android:padding="8dp"
+            style="@style/BoldTextStyle" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/rcl_noe_foods" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorDiselectItems"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="محبوب ترين غذاها"
+            android:textSize="18sp"
+            android:padding="8dp"
+            style="@style/BoldTextStyle" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/rcl_favorites_foods" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorDiselectItems"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="آخرين بازخورد ها"
+            android:textSize="18sp"
+            android:padding="8dp"
+            style="@style/BoldTextStyle" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/rcl_last_comments" />
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

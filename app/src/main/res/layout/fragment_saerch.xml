@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhiteBack">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="جستحو"
+                android:background="@drawable/bg_edt"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12sp"
+                android:id="@+id/edt_search"
+                android:drawablePadding="12sp"
+                android:layout_marginEnd="8dp"
+                style="@style/ThinTextStyle"
+                android:drawableRight="@drawable/ic_search"
+                android:drawableLeft="@drawable/ic_filter"
+                android:padding="16dp"
+                android:drawableTint="@color/colorDiselectItems"/>
+            <View
+                android:layout_width="64dp"
+                android:id="@+id/btn_filter"
+                android:layout_height="48dp"
+                android:layout_alignBottom="@+id/edt_search"
+                android:layout_marginBottom="4dp" />
+        </RelativeLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/container_filter_states"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="rtl"
+            android:layout_margin="8dp"
+            android:id="@+id/rcl_search"/>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container_search"/>
+
+
+
+
+
+
+</RelativeLayout>
