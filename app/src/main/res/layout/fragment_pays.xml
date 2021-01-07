@@ -1,17 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorButtonRed">
+    android:background="@color/colorWhiteBack"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="پرداخت ها"
-        android:textSize="35sp"
-        android:textColor="@color/colorWhite"
-        style="@style/DefaultTextStyle"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@color/colorPrimary" />
 
 
-</RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginStart="12sp"
+                android:layout_marginTop="45dp"
+                android:layout_marginEnd="12sp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/btn_show_list_factors"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_commets"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        app:srcCompat="@drawable/ic_note"
+                        app:tint="@color/colorButtonRed" />
+
+                    <TextView
+                        style="@style/DefaultTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        android:text="فاکتور ها" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_show_chart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_commets"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:padding="8dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/ic_bar_chart"
+                        app:tint="@color/colorButtonGreen" />
+
+                    <TextView
+                        style="@style/DefaultTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        android:text="نمودار فروش" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/BoldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:text="امور مالی"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/btn_more_financial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layoutDirection="rtl"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_more"
+                app:tint="@color/colorTextDark" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/BoldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="آخرین فاکتور ها"
+                android:textSize="18sp" />
+
+            <ProgressBar
+                android:id="@+id/prg_last_factors"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcl_last_factors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layoutDirection="rtl" />
+
+        <TextView
+            android:id="@+id/txt_no_found_last_factor"
+            style="@style/ThinTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="اخیرا فاکتوری نداشته اید"
+            android:textColor="@color/colorTextLight" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorDiselectItems" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/BoldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="آخرین پرداخت ها"
+                android:textSize="18sp" />
+
+            <ProgressBar
+                android:id="@+id/prg_last_pays"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/btn_show_list_pays_fin"
+                style="@style/ThinTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="left"
+                android:text="مشاهده همه" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcl_last_pays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layoutDirection="rtl" />
+
+        <TextView
+            android:id="@+id/txt_no_found_last_pay"
+            style="@style/ThinTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="اخیرا پرداختی نداشته اید"
+            android:textColor="@color/colorTextLight" />
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

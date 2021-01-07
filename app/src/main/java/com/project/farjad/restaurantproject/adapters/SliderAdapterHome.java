@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -26,11 +26,6 @@ public class SliderAdapterHome extends SliderViewAdapter<SliderAdapterHome.Slide
 
     public void renewItems(List<Ghaza> sliderItems) {
         this.mSliderItems = sliderItems;
-        notifyDataSetChanged();
-    }
-
-    public void deleteItem(int position) {
-        this.mSliderItems.remove(position);
         notifyDataSetChanged();
     }
 
@@ -60,18 +55,24 @@ public class SliderAdapterHome extends SliderViewAdapter<SliderAdapterHome.Slide
         private TextView txt_name_food_slider;
         private TextView isMojod_slider;
         private TextView txt_price_slider;
+        private TextView type_food_slider;
+        private RatingBar rating_slider;
         public SliderHomeViewHolder(View itemView) {
             super(itemView);
             txt_name_food_slider = itemView.findViewById(R.id.txt_name_food_slider);
             isMojod_slider = itemView.findViewById(R.id.isMojod_slider);
             img_food_slider = itemView.findViewById(R.id.img_food_slider);
             txt_price_slider = itemView.findViewById(R.id.txt_price_slider);
+            rating_slider= itemView.findViewById(R.id.rating_slider);
+            type_food_slider= itemView.findViewById(R.id.type_food_slider);
 
         }
         public void BindSlider(Ghaza slidesHome){
             txt_name_food_slider.setText(slidesHome.getName());
-            img_food_slider.setActualImageResource(slidesHome.getImgGhaza());
-            txt_price_slider.setText(slidesHome.getGheymat());
+            rating_slider.setRating(slidesHome.getNomre());
+            img_food_slider.setImageURI(slidesHome.getImgGhaza());
+            type_food_slider.setText(slidesHome.getType());
+            txt_price_slider.setText(slidesHome.getGheymat() + " تومان ");
             if (slidesHome.isMojodi())
                 isMojod_slider.setText("موجود");
             else isMojod_slider.setText("تمام شده");

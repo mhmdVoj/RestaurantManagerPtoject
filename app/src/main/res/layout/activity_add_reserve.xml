@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:layout_height="match_parent"
+    android:id="@+id/container_new_res"
+    android:background="@color/colorWhiteBack"
+    android:orientation="vertical"
+    tools:context=".views.AddReserveActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/toolbar_new_food"
+                android:background="@color/colorPrimary"
+                android:layout_height="?actionBarSize">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_back"
+                    android:rotation="180"
+                    android:padding="8dp"
+                    android:id="@+id/btn_back_new_reserve"
+                    android:layout_marginRight="8sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_title_new_moshtari"
+                    android:text="رزرو جدید"
+                    android:textSize="18sp"
+                    android:layout_toLeftOf="@+id/btn_back_new_reserve"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="8sp"
+                    style="@style/BoldTextStyle"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:layout_margin="24dp"
+                app:srcCompat="@drawable/ic_reservation"
+                app:tint="@color/colorPrimaryDark"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:padding="8sp"
+                android:layout_marginStart="12sp"
+                android:layout_marginEnd="12sp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:id="@+id/txt_customer_new_reserve"
+                    android:text="نام مشتری"
+                    style="@style/ThinTextStyle"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="انتخاب"
+                    android:id="@+id/btn_select_customer_reserve"
+                    style="@style/DefaultTextStyle"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:padding="8sp"
+                android:layout_marginStart="12sp"
+                android:layout_marginEnd="12sp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:id="@+id/txt_date_new_reserve"
+                    android:text="تاریخ رزرو"
+                    style="@style/ThinTextStyle"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="انتخاب"
+                    android:id="@+id/btn_select_date_reserve"
+                    style="@style/DefaultTextStyle"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:padding="8sp"
+                android:layout_marginStart="12sp"
+                android:id="@+id/layout_select_type_food"
+                android:layout_marginEnd="12sp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:id="@+id/txt_time_new_reserve"
+                    android:text="ساعت رزرو"
+                    style="@style/ThinTextStyle"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="انتخاب"
+                    android:id="@+id/btn_select_time_reserve"
+                    style="@style/DefaultTextStyle"/>
+            </FrameLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ThinTextStyle"
+                android:hint="شماره میز"
+                android:layout_margin="12dp"
+                android:maxLines="1"
+                android:inputType="number"
+                android:id="@+id/edt_select_shomare_miz_reserve"
+                android:maxLength="6"
+                android:gravity="right"
+                android:background="@drawable/bg_edt"
+                android:padding="12sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ThinTextStyle"
+                android:hint="تعداد میهمانان"
+                android:layout_margin="12dp"
+                android:maxLines="1"
+                android:gravity="right"
+                android:inputType="number"
+                android:id="@+id/edt_select_count_reserve"
+                android:maxLength="3"
+                android:background="@drawable/bg_edt"
+                android:padding="12sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="rtl"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    style="@style/DefaultTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/chk_vpn"
+                    android:layout_marginEnd="8dp"
+                    android:layout_height="wrap_content"
+                    android:text="VIP"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:id="@+id/chk_normal"
+                    android:layout_height="wrap_content"
+                    style="@style/DefaultTextStyle"
+                    android:text="معمولی"/>
+
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تایید"
+                android:id="@+id/btn_submit_reserve"
+                android:layout_gravity="center"
+                android:layout_margin="24dp"
+                android:textSize="18sp"
+                style="@style/DefaultTextStyle"
+                android:backgroundTint="@color/colorGreenLight" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+</RelativeLayout>

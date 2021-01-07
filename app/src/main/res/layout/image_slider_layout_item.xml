@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RatingBar
-            android:id="@+id/ratingBar2"
+            android:id="@+id/rating_slider"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

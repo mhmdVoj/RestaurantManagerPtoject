@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16sp"
+        android:layout_marginEnd="16sp"
+        android:text="ویرایش غذا"
+        style="@style/BoldTextStyle"
+        android:textSize="16sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16sp"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="4dp"
+        android:text="شما فقط میتوانید برخی از اطلاعات غذا را ویرایش نمایید. برای ویرایش بیشتر بهتر است غذا را دوباره اضافه نمایید"
+        style="@style/ThinTextStyle"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ویرایش قیمت"
+        android:id="@+id/edt_price_edit"
+        android:padding="12sp"
+        style="@style/ThinTextStyle"
+        android:layout_marginTop="16sp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_edt"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:padding="12sp"
+        android:layout_marginStart="12sp"
+        android:layout_marginEnd="12sp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:text="موجودی غذا"
+            style="@style/ThinTextStyle"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch_select_edit_food"
+            android:checked="true"
+            style="@style/DefaultTextStyle"/>
+    </FrameLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ثبت تغییرات"
+        style="@style/DefaultTextStyle"
+        android:id="@+id/btn_save_changes"
+        android:layout_margin="24dp"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

@@ -3,14 +3,21 @@ package com.project.farjad.restaurantproject.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+
+@Entity
 public class Ghaza implements Parcelable {
-    private long id;
+    @PrimaryKey(autoGenerate = true) private long id;
     private String name;
-    private int imgGhaza;
+    private String imgGhaza;
     private String gheymat;
     private boolean mojodi;
     private int nomre;
     private String tozih;
+    private long id_noeGhaza;
 
     public long getId() {
         return id;
@@ -28,11 +35,11 @@ public class Ghaza implements Parcelable {
         this.name = name;
     }
 
-    public int getImgGhaza() {
+    public String getImgGhaza() {
         return imgGhaza;
     }
 
-    public void setImgGhaza(int imgGhaza) {
+    public void setImgGhaza(String imgGhaza) {
         this.imgGhaza = imgGhaza;
     }
 
@@ -68,6 +75,19 @@ public class Ghaza implements Parcelable {
         this.tozih = tozih;
     }
 
+    private String type;
+
+
+    public Ghaza() {
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     @Override
     public int describeContents() {
@@ -78,27 +98,26 @@ public class Ghaza implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(this.id);
         dest.writeString(this.name);
-        dest.writeInt(this.imgGhaza);
+        dest.writeString(this.imgGhaza);
         dest.writeString(this.gheymat);
         dest.writeByte(this.mojodi ? (byte) 1 : (byte) 0);
         dest.writeInt(this.nomre);
         dest.writeString(this.tozih);
-    }
-
-    public Ghaza() {
+        dest.writeString(this.type);
     }
 
     protected Ghaza(Parcel in) {
         this.id = in.readLong();
         this.name = in.readString();
-        this.imgGhaza = in.readInt();
+        this.imgGhaza = in.readString();
         this.gheymat = in.readString();
         this.mojodi = in.readByte() != 0;
         this.nomre = in.readInt();
         this.tozih = in.readString();
+        this.type = in.readString();
     }
 
-    public static final Parcelable.Creator<Ghaza> CREATOR = new Parcelable.Creator<Ghaza>() {
+    public static final Creator<Ghaza> CREATOR = new Creator<Ghaza>() {
         @Override
         public Ghaza createFromParcel(Parcel source) {
             return new Ghaza(source);
@@ -109,4 +128,12 @@ public class Ghaza implements Parcelable {
             return new Ghaza[size];
         }
     };
+
+    public long getId_noeGhaza() {
+        return id_noeGhaza;
+    }
+
+    public void setId_noeGhaza(long id_noeGhaza) {
+        this.id_noeGhaza = id_noeGhaza;
+    }
 }

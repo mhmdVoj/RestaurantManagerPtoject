@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhiteBack"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12sp"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="جزییات پرسنل"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            style="@style/BoldTextStyle"
+            android:textSize="16sp" />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="حذف پرسنل"
+            android:id="@+id/btn_delete_personnel"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:backgroundTint="@color/colorButtonRed"
+            style="@style/DefaultTextStyle"
+            android:layout_margin="8dp"
+            android:textColor="@color/colorWhite"/>
+    </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12sp"
+
+        android:layout_marginEnd="12sp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="24dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="86dp"
+                android:layout_height="86dp"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/ic_user" />
+
+            <TextView
+                style="@style/BoldTextStyle"
+                android:id="@+id/txt_name_personnel_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="علی احسان پور"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="rtl"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="3dp"
+                    android:id="@+id/img_semat_detail"
+                    app:srcCompat="@drawable/ic_cheff_hat"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_semat_detail"
+                    android:text="آشپز"
+                    style="@style/ThinTextStyle"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"/>
+            </LinearLayout>
+            <TextView
+                style="@style/ThinTextStyle"
+                android:id="@+id/txt_address_num_personnel_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=" تهران- خیابان 12 متری جی: 0913588588"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ThinTextStyle"
+        android:textSize="12sp"
+        android:layout_margin="12sp"
+        android:id="@+id/txt_date_join_personnel"/>
+
+
+
+
+
+
+</LinearLayout>

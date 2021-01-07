@@ -1,19 +1,24 @@
 package com.project.farjad.restaurantproject.views
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.project.farjad.restaurantproject.R
-import com.project.farjad.restaurantproject.views.fragment.FragmentCustomers
-import com.project.farjad.restaurantproject.views.fragment.FragmentHome
-import com.project.farjad.restaurantproject.views.fragment.FragmentPays
-import com.project.farjad.restaurantproject.views.fragment.FragmentSearch
+import com.project.farjad.restaurantproject.tools.PrefsSetting
+import com.project.farjad.restaurantproject.views.fragment.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val prefs : PrefsSetting = PrefsSetting(this)
+        if (prefs.user == "") {
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         setupBottomNavigation()
     }
 
@@ -55,6 +60,14 @@ class MainActivity : AppCompatActivity() {
                     transactionPays.replace(
                         R.id.container_main,
                         FragmentPays()
+                    )
+                    transactionPays.commit()
+                }
+                R.id.item_personnel ->{
+                    val transactionPays : FragmentTransaction = supportFragmentManager.beginTransaction()
+                    transactionPays.replace(
+                        R.id.container_main,
+                        FragmentPersonnel()
                     )
                     transactionPays.commit()
                 }

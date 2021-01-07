@@ -2,15 +2,49 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.farjad.restaurantproject">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ApplicationLoader"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.DetailActivity"></activity>
+        <activity android:name=".views.PersonnelDetailActivity"></activity>
+        <activity android:name=".views.AddPersonnelActivity" />
+        <activity
+            android:name=".views.ChartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.DetailFactorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.AddFactorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.AddReserveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.CustomerDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.AddMoshtariActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.AddFoodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.ListReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.FoodDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.MainActivity"
             android:screenOrientation="portrait">

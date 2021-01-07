@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="8dp"
+    android:background="@drawable/bg_commets"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginEnd="16dp"
+        android:id="@+id/layout_btn_detail"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_count_foods_factor"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_detail_factor"
+            style="@style/DefaultTextStyle"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="جزییات"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_go_pay_factor"
+            app:layout_constraintEnd_toStartOf="@+id/btn_go_pay_factor"
+            app:layout_constraintTop_toTopOf="@+id/btn_go_pay_factor" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_go_pay_factor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="پرداخت"
+            android:backgroundTint="@color/colorGreenLight"
+            style="@style/DefaultTextStyle"
+             />
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        style="@style/DefaultTextStyle"
+        android:layout_marginTop="16dp"
+        android:textSize="15sp"
+        android:text="فاکتور شماره"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_shomare_factor_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="15sp"
+        style="@style/DefaultTextStyle"
+        android:text="10025"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/txt_mosh_factor_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="15sp"
+        style="@style/BoldTextStyle"
+        android:gravity="center"
+        android:text="رابرت پتینگسون"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_shomare_factor_item"
+        app:layout_constraintStart_toEndOf="@+id/txt_shomare_factor_item"
+        app:layout_constraintTop_toTopOf="@+id/txt_shomare_factor_item" />
+
+    <TextView
+        android:id="@+id/txt_date_factor_item"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="تاریخ سه شنبه 99/5/12"
+        style="@style/ThinTextStyle"
+        android:textColor="#EE7A7A7A"
+        app:layout_constraintEnd_toStartOf="@+id/txt_count_foods_factor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/txt_count_foods_factor"
+        android:layout_width="204dp"
+        style="@style/ThinTextStyle"
+        android:layout_height="wrap_content"
+        android:textColor="#EE7A7A7A"
+        android:gravity="center"
+        android:text="تعداد غذا : 6"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_date_factor_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txt_date_factor_item"
+        app:layout_constraintTop_toTopOf="@+id/txt_date_factor_item"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txt_jame_factor_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/bg_price"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="260000 تومان"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_btn_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/layout_btn_detail" />
+</androidx.constraintlayout.widget.ConstraintLayout>

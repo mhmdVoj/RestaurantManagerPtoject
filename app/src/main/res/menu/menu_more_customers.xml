@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="مشتری جدید" android:id="@+id/menu_new_customer"/>
+    <item android:title="رزرو جدید" android:id="@+id/menu_new_reserve"/>
+
+</menu>

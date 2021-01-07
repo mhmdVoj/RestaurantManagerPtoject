@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/bg_commets">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img_ghaza_riz"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:actualImageResource="@drawable/omlet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCornerRadius="8dp" />
+
+    <TextView
+        android:id="@+id/txt_name_ghaza_riz"
+        style="@style/BoldTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="سبزی پلو با ماهی"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/img_ghaza_riz"
+        app:layout_constraintTop_toTopOf="@+id/img_ghaza_riz" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/plus_tedad_riz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_plus" />
+
+        <TextView
+            android:id="@+id/txt_tedad_ghaza_riz"
+            style="@style/ThinTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="2 عدد" />
+
+        <ImageView
+            android:id="@+id/minus_tedad_riz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_minus" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_price_ghaza_riz"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="5000 تومان"
+        android:textColor="@color/colorGreenDark"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_ghaza_riz"
+        app:layout_constraintStart_toEndOf="@+id/img_ghaza_riz"
+        app:layout_constraintTop_toBottomOf="@+id/txt_noe_ghaza_riz" />
+
+    <TextView
+        android:id="@+id/txt_jame_riz"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_price"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="10000  تومان"
+        android:textColor="@color/colorGreenDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/txt_noe_ghaza_riz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        style="@style/ThinTextStyle"
+        android:textSize="11sp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/img_ghaza_riz"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name_ghaza_riz" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

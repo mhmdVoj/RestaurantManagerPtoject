@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorWhiteBack"
+    android:orientation="vertical"
+    android:id="@+id/container_new_factor"
+    android:layout_height="match_parent"
+    tools:context=".views.AddFactorActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/toolbar_new_food"
+                android:background="@color/colorPrimary"
+                android:layout_height="?actionBarSize">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_back"
+                    android:rotation="180"
+                    android:padding="8dp"
+                    android:id="@+id/btn_back_new_factor"
+                    android:layout_marginRight="8sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_title_new_moshtari"
+                    android:text="فاکتور جدید"
+                    android:textSize="18sp"
+                    android:layout_toLeftOf="@+id/btn_back_new_factor"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="8sp"
+                    style="@style/BoldTextStyle"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:layout_margin="24dp"
+                app:srcCompat="@drawable/ic_bill"
+                app:tint="@color/colorPrimaryDark"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ThinTextStyle"
+                android:hint="تاریخ"
+                android:layout_margin="12dp"
+                android:maxLines="1"
+                android:inputType="datetime"
+                android:id="@+id/edt_date_new_factor"
+                android:maxLength="30"
+                android:gravity="right"
+                android:background="@drawable/bg_edt"
+                android:padding="12sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:padding="8sp"
+                android:layout_marginStart="12sp"
+                android:layout_marginEnd="12sp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:id="@+id/txt_customer_new_factor"
+                    android:text="نام مشتری"
+                    style="@style/ThinTextStyle"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="انتخاب"
+                    android:id="@+id/btn_select_customer_factor"
+                    style="@style/DefaultTextStyle"/>
+            </FrameLayout>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="تخفیف"
+                android:layoutDirection="rtl"
+                android:visibility="gone"
+                android:id="@+id/chk_sale_new_factor"
+                style="@style/ThinTextStyle"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ThinTextStyle"
+                android:hint="میزان تخفیف"
+                android:layout_margin="12dp"
+                android:maxLines="1"
+                android:inputType="datetime"
+                android:visibility="gone"
+                android:id="@+id/edt_sale_new_factor"
+                android:maxLength="30"
+                android:gravity="right"
+                android:background="@drawable/bg_edt"
+                android:padding="12sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تایید"
+                android:id="@+id/btn_submit_factor"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                style="@style/DefaultTextStyle"
+                android:backgroundTint="@color/colorGreenLight" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dana_medium"
+                    android:text=" تایید وباز کردن فاکتور"
+                    android:id="@+id/btn_submit_factor_and_go"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/colorGreenDark"
+                    android:textSize="14sp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مشاهده لیست فاکتور ها"
+                    android:id="@+id/btn_show_list_factors_new"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/dana_medium"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorBlueLight"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

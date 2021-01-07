@@ -20,7 +20,7 @@
         android:background="@color/colorWhite"
         android:elevation="4dp"
         android:orientation="horizontal"
-        android:padding="12dp"
+        android:padding="8dp"
         app:bnc_mode="packed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,61 +32,77 @@
             android:id="@+id/item_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             app:bt_active="true"
             app:bt_colorActive="@color/colorButtonGreen"
             app:bt_colorInactive="@color/colorDiselectItems"
             app:bt_icon="@drawable/ic_home"
-            app:bt_padding="10dp"
+            app:bt_padding="12dp"
             app:bt_shape="@drawable/bg_navi_bottom_items_green"
             app:bt_title="خانه"
-            app:bt_titlePadding="12dp" />
+            app:bt_titlePadding="8dp" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
         android:id="@+id/item_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:bt_active="false"
         app:bt_colorActive="@color/colorButtonYellow"
         app:bt_colorInactive="@color/colorDiselectItems"
         app:bt_icon="@drawable/ic_search"
-        app:bt_padding="10dp"
+        app:bt_padding="12dp"
         app:bt_shape="@drawable/bg_navi_bottom_items_yellow"
         app:bt_title="جستجو"
-        app:bt_titlePadding="12dp" />
+        app:bt_titlePadding="8dp" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/item_customers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             app:bt_active="false"
             app:bt_colorActive="@color/colorBlueLight"
             app:bt_colorInactive="@color/colorDiselectItems"
             app:bt_icon="@drawable/ic_customer"
-            app:bt_padding="10dp"
+            app:bt_padding="12dp"
             app:bt_shape="@drawable/bg_navi_bottom_items_blue"
             app:bt_title="مشتريان"
-            app:bt_titlePadding="12dp" />
+            app:bt_titlePadding="8dp" />
+
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/item_pays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             app:bt_active="false"
             app:bt_colorActive="@color/colorButtonRed"
             app:bt_colorInactive="@color/colorDiselectItems"
             app:bt_icon="@drawable/ic_coin"
-            app:bt_padding="10dp"
+            app:bt_padding="12dp"
             app:bt_shape="@drawable/bg_navi_bottom_items_orange"
             app:bt_title="امور مالی"
-            app:bt_titlePadding="12dp" />
+            app:bt_titlePadding="8dp" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_personnel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:bt_active="false"
+            app:bt_colorActive="#AA00FF"
+            app:bt_colorInactive="@color/colorDiselectItems"
+            app:bt_icon="@drawable/ic_employee"
+            app:bt_padding="12dp"
+            app:bt_shape="@drawable/bg_navi_bottom_items_purpul"
+            app:bt_title="پرسنلی"
+            app:bt_titlePadding="8dp" />
 
         <!-- Add more child items here - max upto 5 -->
 

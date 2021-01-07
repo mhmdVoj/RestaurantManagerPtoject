@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorWhiteBack"
+    android:layout_height="match_parent"
+    tools:context=".views.AddFoodActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar_new_food"
+            android:background="@color/colorPrimary"
+            android:layout_height="?actionBarSize">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_back"
+                android:rotation="180"
+                android:padding="8dp"
+                android:id="@+id/btn_back_new_food"
+                android:layout_marginRight="8sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_title_new_moshtari"
+                android:text="غذای جدید"
+                android:textSize="18sp"
+                android:layout_toLeftOf="@+id/btn_back_new_food"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="8sp"
+
+                style="@style/BoldTextStyle"/>
+
+        </RelativeLayout>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_margin="12dp"
+            android:id="@+id/img_pic_new_food"
+            app:roundedCornerRadius="16dp"
+            android:layout_below="@+id/toolbar_new_food"
+            app:actualImageResource="@drawable/place_holder"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:layout_below="@+id/img_pic_new_food"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:id="@+id/btn_select_pic_galley">
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/bg_edt"
+                android:maxLines="1"
+                android:inputType="textUri"
+                style="@style/ThinTextStyle"
+                android:id="@+id/edt_url_new_food"
+                android:hint="آدرس اینترنتی عکس غذا "
+                android:layout_margin="12dp"
+                android:padding="12sp"/>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ثبت عکس"
+                android:id="@+id/btn_submit_pic_food"
+                android:layout_marginLeft="12dp"
+                style="@style/DefaultTextStyle"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThinTextStyle"
+            android:hint="نام غذا"
+            android:maxLines="1"
+            android:inputType="text"
+            android:maxLength="20"
+            android:layout_margin="12dp"
+            android:id="@+id/edt_select_name_food"
+            android:background="@drawable/bg_edt"
+            android:padding="12sp"
+            android:layout_below="@+id/btn_select_pic_galley"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThinTextStyle"
+            android:hint="قیمت غذا"
+            android:layout_margin="12dp"
+            android:maxLines="1"
+            android:inputType="number"
+            android:id="@+id/edt_select_price_food"
+            android:maxLength="6"
+            android:background="@drawable/bg_edt"
+            android:padding="12sp"
+            android:layout_below="@+id/edt_select_name_food"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            style="@style/ThinTextStyle"
+            android:gravity="top"
+            android:inputType="text|textMultiLine|textCapSentences"
+            android:hint="توضیحات غذا"
+            android:layout_margin="12dp"
+            android:id="@+id/edt_select_tozih_food"
+            android:background="@drawable/bg_edt"
+            android:padding="12sp"
+            android:layout_below="@+id/edt_select_price_food"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:padding="12sp"
+            android:layout_marginStart="12sp"
+            android:id="@+id/layout_select_type_food"
+            android:layout_marginEnd="12sp"
+            android:layout_below="@+id/edt_select_tozih_food"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:id="@+id/txt_type_food_selected"
+                android:text="نوع غذا"
+                style="@style/ThinTextStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="انتخاب"
+                android:id="@+id/btn_select_type_food"
+                style="@style/DefaultTextStyle"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:padding="12sp"
+            android:layout_marginStart="12sp"
+            android:id="@+id/layout_select_mojodi_food"
+            android:layout_marginEnd="12sp"
+            android:layout_below="@+id/layout_select_type_food"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:text="موجودی غذا"
+                style="@style/ThinTextStyle"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switch_select_new_food"
+                android:checked="true"
+                style="@style/DefaultTextStyle"/>
+        </FrameLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تایید"
+            android:id="@+id/btn_submit_food"
+            android:layout_below="@+id/layout_select_mojodi_food"
+            android:layout_margin="24dp"
+            android:textSize="18sp"
+            style="@style/DefaultTextStyle"
+            android:backgroundTint="@color/colorGreenLight"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="فاکتور جدید" android:id="@+id/menu_new_factor"/>
+</menu>

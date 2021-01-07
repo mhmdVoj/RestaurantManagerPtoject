@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="روز هفته را انتخاب نمایید"
+        style="@style/BoldTextStyle"
+        android:textSize="16sp"
+        android:layout_margin="12sp"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shanbe_rdb"
+            style="@style/DefaultTextStyle"
+            android:textSize="16sp"
+            android:text="شنبه"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/yekshanbe_rdb"
+            style="@style/DefaultTextStyle"
+            android:text="یکشنبه"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/doshanbe_rdb"
+            style="@style/DefaultTextStyle"
+            android:text="دوشنبه"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seshanbe_rdb"
+            style="@style/DefaultTextStyle"
+            android:text="سه شنبه"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:id="@+id/charshanbe_rdb"
+            android:layout_height="wrap_content"
+            style="@style/DefaultTextStyle"
+            android:text="چهارشنبه"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:id="@+id/panjshanbe_rdb"
+            android:layout_height="wrap_content"
+            style="@style/DefaultTextStyle"
+            android:text="پنجشنبه"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/jome_rdb"
+            style="@style/DefaultTextStyle"
+            android:layout_marginBottom="8dp"
+            android:text="جمعه"/>
+    </RadioGroup>
+
+
+</LinearLayout>

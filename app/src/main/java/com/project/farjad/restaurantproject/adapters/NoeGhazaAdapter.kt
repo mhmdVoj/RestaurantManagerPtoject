@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.farjad.restaurantproject.R
 import com.project.farjad.restaurantproject.model.NoeGhaza
+import com.project.farjad.restaurantproject.model.classHelpers.NoeGhazaWithGhaza
 
-public class NoeGhazaAdapter(val foodTypes : List<NoeGhaza>,val listener : onNoeGhazaListListener) : RecyclerView.Adapter<NoeGhazaAdapter.NoeGhazaViewHolder>() {
+public class NoeGhazaAdapter(val foodTypes : List<NoeGhazaWithGhaza>,val listener : onNoeGhazaListListener) : RecyclerView.Adapter<NoeGhazaAdapter.NoeGhazaViewHolder>() {
     class NoeGhazaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtNoe : TextView = itemView.findViewById(R.id.txt_noe)
         val imgNoe : ImageView = itemView.findViewById(R.id.img_noe)
@@ -25,14 +26,14 @@ public class NoeGhazaAdapter(val foodTypes : List<NoeGhaza>,val listener : onNoe
     override fun getItemCount() =  foodTypes.size
 
     override fun onBindViewHolder(holder: NoeGhazaViewHolder, position: Int) {
-        holder.bindData(foodTypes[position])
+        holder.bindData(foodTypes[position].noeGhaza)
         holder.itemView.setOnClickListener {
             listener.onClickNeoGhaza(foodTypes[position])
         }
     }
 
     interface onNoeGhazaListListener{
-        fun onClickNeoGhaza(type : NoeGhaza)
+        fun onClickNeoGhaza(typeWithList : NoeGhazaWithGhaza)
     }
 
 

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorWhiteBack"
+    android:layout_height="match_parent"
+    tools:context=".views.CustomerDetailActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@color/colorPrimary" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12sp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="12sp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="86dp"
+                        android:layout_height="86dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/ic_user" />
+
+                    <TextView
+                        style="@style/BoldTextStyle"
+                        android:id="@+id/txt_name_customer_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="علی احسان پور"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        style="@style/ThinTextStyle"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/txt_shomare_eshterak_detail"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1021"
+                        android:textColor="#FF9100" />
+
+                    <TextView
+                        style="@style/ThinTextStyle"
+                        android:id="@+id/txt_address_num_customer_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=" تهران- خیابان 12 متری جی: 0913588588"
+                        />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                style="@style/BoldTextStyle"
+                android:id="@+id/btn_back_detail_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                app:srcCompat="@drawable/ic_back"
+                android:padding="8dp"
+                android:rotation="180"
+                android:background="@drawable/bg_noe_ghaza" />
+
+            <ImageView
+                android:id="@+id/btn_edit_customer_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layoutDirection="rtl"
+                android:background="@drawable/bg_noe_ghaza"
+                android:padding="9dp"
+                app:srcCompat="@drawable/ic_edit"
+                app:tint="@color/colorTextDark" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" پرداخت های مشتری"
+                style="@style/BoldTextStyle"
+                android:textSize="18sp"
+                android:layout_marginEnd="12sp"
+                android:layout_marginStart="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:textColor="@color/colorDiselectItems"
+                android:text="مشتری پرداختی انجام نداده"
+                android:id="@+id/txt_no_found_pays_this_cus"
+                style="@style/ThinTextStyle"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layoutDirection="rtl"
+                android:id="@+id/rcl_pays_this_customer"
+                android:padding="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorDiselectItems"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="بازخورد های مشتری"
+                style="@style/BoldTextStyle"
+                android:textSize="18sp"
+                android:layout_marginEnd="12sp"
+                android:layout_marginStart="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="مشتری بازخوردی ثبت نکرده"
+                android:textColor="@color/colorDiselectItems"
+                android:id="@+id/txt_no_found_comment_this_cus"
+                style="@style/ThinTextStyle"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layoutDirection="rtl"
+                android:id="@+id/rcl_comments_this_customer"
+                android:padding="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorDiselectItems"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="رزرو های مشتری"
+                style="@style/BoldTextStyle"
+                android:textSize="18sp"
+                android:layout_marginEnd="12sp"
+                android:layout_marginStart="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:textColor="@color/colorDiselectItems"
+                android:gravity="center"
+                android:id="@+id/txt_no_found_reserve_this_cus"
+                android:text="مشتری رزروی ندارد"
+                style="@style/ThinTextStyle"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layoutDirection="rtl"
+                android:id="@+id/rcl_reserves_this_customer"
+                android:padding="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

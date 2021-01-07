@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhiteBack">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="vertical">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="جستحو"
+                android:background="@drawable/bg_edt"
+                android:layout_marginStart="8dp"
+                android:id="@+id/edt_search_personnel"
+                android:visibility="gone"
+                android:drawablePadding="12sp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
+                style="@style/ThinTextStyle"
+                android:padding="16dp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/rcl_personnel_main"
+                android:padding="8dp"
+                android:layoutDirection="rtl"/>
+
+        </LinearLayout>
+
+
+
+        <TextView
+            style="@style/BoldTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="امور پرسنل"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/btn_more_personnel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layoutDirection="rtl"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_more"
+            app:tint="@color/colorTextDark" />
+
+        <ImageView
+            android:id="@+id/btn_search_personnel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layoutDirection="rtl"
+            android:layout_toRightOf="@+id/btn_more_personnel"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_search"
+            app:tint="@color/colorTextDark" />
+    </RelativeLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

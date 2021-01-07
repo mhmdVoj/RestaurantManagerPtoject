@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorWhiteBack"
+    android:layout_height="match_parent"
+    tools:context=".views.ListReportActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_height="?actionBarSize">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_back"
+                android:rotation="180"
+                android:padding="8dp"
+                android:id="@+id/btn_back_comments"
+                android:layout_marginRight="8sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_search"
+                android:padding="8dp"
+                app:tint="@color/colorTextDark"
+                android:id="@+id/btn_show_search_report"
+                android:layout_marginLeft="8sp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"/>
+
+            <EditText
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:hint="جستحو"
+                android:background="@drawable/bg_edt"
+                android:visibility="gone"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:layout_marginTop="12sp"
+                android:layout_centerVertical="true"
+                android:id="@+id/edt_search_report"
+                android:drawablePadding="12sp"
+                android:layout_marginEnd="8dp"
+                style="@style/ThinTextStyle"
+                android:padding="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_name_report"
+                android:text="گزارش يافت نشد"
+                android:textSize="18sp"
+                android:layout_toLeftOf="@+id/btn_back_comments"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="8sp"
+
+                style="@style/BoldTextStyle"/>
+
+        </RelativeLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layoutDirection="rtl"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_height="match_parent"
+        android:id="@+id/rcl_reports"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="غذایی یافت نشد"
+        android:layout_centerInParent="true"
+        android:id="@+id/txt_no_found_report"
+        android:visibility="gone"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        style="@style/DefaultTextStyle"
+        android:textColor="@color/colorDiselectItems"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

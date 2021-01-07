@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="4dp"
+    android:background="@drawable/bg_commets"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_user" />
+
+    <TextView
+        android:id="@+id/txt_name_moshtari_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BoldTextStyle"
+        android:textSize="15sp"
+        android:layout_marginStart="16dp"
+        android:text="مهران مديري"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/txt_shomare_eshterak_list"
+        style="@style/ThinTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="اشتراك فعال"
+        android:textColor="#FF9100"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_name_moshtari_list"
+        app:layout_constraintStart_toEndOf="@+id/txt_name_moshtari_list"
+        app:layout_constraintTop_toTopOf="@+id/txt_name_moshtari_list" />
+
+    <TextView
+        android:id="@+id/txt_number_moshtari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:textSize="13sp"
+        style="@style/DefaultTextStyle"
+        android:text="09131234567"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name_moshtari_list" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

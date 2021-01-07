@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/colorWhiteBack">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,13 +23,13 @@
                 android:drawablePadding="12sp"
                 android:layout_marginEnd="8dp"
                 style="@style/ThinTextStyle"
-                android:drawableRight="@drawable/ic_search"
-                android:drawableLeft="@drawable/ic_filter"
-                android:padding="16dp"
-                android:drawableTint="@color/colorDiselectItems"/>
-            <View
+                android:padding="16dp" />
+            <ImageView
                 android:layout_width="64dp"
                 android:id="@+id/btn_filter"
+                app:srcCompat="@drawable/ic_filter"
+                android:padding="10dp"
+                app:tint="@color/colorDiselectItems"
                 android:layout_height="48dp"
                 android:layout_alignBottom="@+id/edt_search"
                 android:layout_marginBottom="4dp" />
@@ -37,7 +37,15 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/container_filter_states"/>
+            android:layout_gravity="center"
+            android:id="@+id/container_filter_states">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layoutDirection="rtl"
+                android:id="@+id/rcl_label_filters"/>
+        </FrameLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -45,14 +53,18 @@
             android:layout_margin="8dp"
             android:id="@+id/rcl_search"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="غذایی یافت نشد"
+        android:layout_centerInParent="true"
+        android:id="@+id/txt_no_found_search"
+        android:visibility="gone"
+        android:textSize="18sp"
+        style="@style/DefaultTextStyle"
+        android:textColor="@color/colorDiselectItems"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/container_search"/>
-
-
-
-
-
-
 </RelativeLayout>

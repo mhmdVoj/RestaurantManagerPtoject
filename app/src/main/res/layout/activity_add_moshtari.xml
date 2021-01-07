@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhiteBack"
+    tools:context=".views.AddMoshtariActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar_new_moshtari"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/btn_back_new_moshtari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="8sp"
+            android:padding="8dp"
+            android:rotation="180"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/txt_title_new_moshtari"
+            style="@style/BoldTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="8sp"
+            android:layout_toLeftOf="@+id/btn_back_new_moshtari"
+            android:text="مشتری جدید"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_new_moshtari"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:layout_gravity="center"
+            android:layout_margin="24dp"
+            app:srcCompat="@drawable/ic_user" />
+
+        <EditText
+            android:id="@+id/edt_select_fistName_moshtari"
+            style="@style/ThinTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_edt"
+            android:hint="نام مشتری"
+            android:inputType="text"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:padding="12sp" />
+
+        <EditText
+            android:id="@+id/edt_select_lastName_moshtari"
+            style="@style/ThinTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_edt"
+            android:hint="نام خانوادگی"
+            android:inputType="text"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:padding="12sp" />
+
+        <EditText
+            android:id="@+id/edt_select_tel_moshtari"
+            style="@style/ThinTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_edt"
+            android:hint="شماره تلفن"
+            android:inputType="phone"
+            android:gravity="end"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:padding="12sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            style="@style/ThinTextStyle"
+            android:gravity="top"
+            android:inputType="text|textMultiLine|textCapSentences"
+            android:hint="آدرس مشتری"
+            android:layout_margin="12dp"
+            android:id="@+id/edt_select_address_moshtari"
+            android:background="@drawable/bg_edt"
+            android:padding="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تایید"
+            android:id="@+id/btn_submit_new_moshtari"
+            android:layout_gravity="center"
+            android:layout_margin="24dp"
+            android:textSize="18sp"
+            style="@style/DefaultTextStyle"
+            android:backgroundTint="@color/colorGreenLight" />
+    </LinearLayout>
+
+
+</RelativeLayout>

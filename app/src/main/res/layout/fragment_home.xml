@@ -14,7 +14,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp">
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/colorPrimary"/>
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="24dp"
                 android:layout_marginTop="60dp"
@@ -43,10 +46,7 @@
                     app:sliderStartAutoCycle="true" />
 
             </androidx.cardview.widget.CardView>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@color/colorPrimary"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,48 +59,40 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_settings"
-                android:id="@+id/btn_setting_home"
-                app:tint="@color/colorTextDark"
-                android:layout_margin="8dp"
-                android:padding="8dp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_list_reserve"
-                app:srcCompat="@drawable/ic_reservs"
-                android:layout_toEndOf="@+id/btn_setting_home"
+                app:srcCompat="@drawable/ic_more"
+                android:layoutDirection="rtl"
+                android:id="@+id/btn_more_home"
                 app:tint="@color/colorTextDark"
                 android:layout_margin="8dp"
                 android:padding="8dp"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_toEndOf="@+id/btn_list_reserve"
-                android:padding="8dp"
-                app:srcCompat="@drawable/ic_chat"
-                app:tint="@color/colorTextDark" />
         </RelativeLayout>
-
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layoutDirection="rtl"
             android:layout_height="wrap_content"
-            android:text="انواع غذا ها"
-            android:textSize="18sp"
-            android:padding="8dp"
-            style="@style/BoldTextStyle" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="انواع غذا ها"
+                android:textSize="18sp"
+                android:padding="8dp"
+                style="@style/BoldTextStyle" />
+            <ProgressBar
+                android:layout_width="24dp"
+                android:layout_gravity="center"
+                android:id="@+id/prg_home_type_food"
+                android:layout_height="24dp"/>
+
+        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="110dp"
             android:layoutDirection="rtl"
             android:layout_marginBottom="8dp"
             android:id="@+id/rcl_noe_foods" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -109,16 +101,28 @@
             android:background="@color/colorDiselectItems"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"/>
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="محبوب ترين غذاها"
-            android:textSize="18sp"
-            android:padding="8dp"
-            style="@style/BoldTextStyle" />
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="آخرین غذاها"
+                android:textSize="18sp"
+                android:padding="8dp"
+                style="@style/BoldTextStyle" />
+            <ProgressBar
+                android:layout_width="24dp"
+                android:layout_gravity="center"
+                android:id="@+id/prg_home_food"
+                android:layout_height="24dp"/>
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="160dp"
             android:layoutDirection="rtl"
             android:layout_marginBottom="8dp"
             android:id="@+id/rcl_favorites_foods" />
