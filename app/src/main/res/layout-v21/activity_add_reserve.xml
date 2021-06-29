@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:fillViewport="true"
+    android:layoutDirection="ltr"
     android:layout_height="match_parent"
     android:id="@+id/container_new_res"
     android:background="@color/colorWhiteBack"
     android:orientation="vertical"
-    android:layoutDirection="ltr"
     tools:context=".views.AddReserveActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -183,7 +183,8 @@
                 android:layout_gravity="center"
                 android:layout_margin="24dp"
                 android:textSize="18sp"
-                style="@style/DefaultTextStyle" />
+                style="@style/DefaultTextStyle"
+                android:backgroundTint="@color/colorGreenLight" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

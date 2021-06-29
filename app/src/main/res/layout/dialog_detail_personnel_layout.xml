@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
     android:background="@color/colorWhiteBack"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
@@ -25,13 +26,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="حذف پرسنل"
+            android:fontFamily="@font/dana_medium"
             android:id="@+id/btn_delete_personnel"
             android:layout_centerInParent="true"
             android:layout_alignParentLeft="true"
-            android:backgroundTint="@color/colorButtonRed"
-            style="@style/DefaultTextStyle"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_margin="8dp"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorButtonRed"/>
     </RelativeLayout>
 
 

@@ -58,12 +58,13 @@ class AddPersonnelActivity : AppCompatActivity() {
     }
 
     private fun savePersonnelDatabase() {
-        val personnel = Personel()
-        personnel.name = edt_select_name_personnel.text.toString()
-        personnel.shomareTel = edt_select_tel_personnel.text.toString()
-        personnel.address = edt_select_address_personnel.text.toString()
-        personnel.id_semat = idSemat.toLong()
-        personnel.tarikhVorol = CalenderGenerator.getCurrentShamsidate()
+        val personnel = Personel().also { personel ->
+            personel.name = edt_select_name_personnel.text.toString()
+            personel.shomareTel = edt_select_tel_personnel.text.toString()
+            personel.address = edt_select_address_personnel.text.toString()
+            personel.id_semat = idSemat.toLong()
+            personel.tarikhVorol = CalenderGenerator.getCurrentShamsidate()
+        }
         viewModel.addPersonnel(personnel)
     }
 }

@@ -49,8 +49,11 @@ public class FragmentSearch : Fragment(), FragmentFilter.filterFragmentListener 
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel = ViewModelProvider(this,MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao())).get(SearchViewModel::class.java)
-        viewModel.allGhaza.observe(viewLifecycleOwner, Observer {
-            initRecyclerView(it)
+        viewModel.allGhaza.observe(viewLifecycleOwner, Observer {foods->
+            foods.forEach {
+                it.type = viewModel.getTypeGhaza(it.id_noeGhaza)
+            }
+            initRecyclerView(foods)
         })
         btn_filter.setOnClickListener {
             val fragmentFilter = FragmentFilter(this)

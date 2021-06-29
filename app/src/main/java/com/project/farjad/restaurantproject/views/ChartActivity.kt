@@ -2,6 +2,7 @@ package com.project.farjad.restaurantproject.views
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.LineChart
@@ -36,7 +37,15 @@ class ChartActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : SingleObserver<List<Pardakhtha>> {
                 override fun onSuccess(t: List<Pardakhtha>) {
-                    bindLineChart(t)
+                    if (t.size < 2){
+                        txt_no_found_chart.visibility = View.VISIBLE
+                        chart_customers_analysis.visibility = View.GONE
+                    }else{
+                        if(t.size >= 10){
+                            bindLineChart(t.subList(0,9))
+                        }
+                        bindLineChart(t)
+                    }
                 }
                 override fun onSubscribe(d: Disposable) {
 
@@ -50,7 +59,12 @@ class ChartActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : SingleObserver<List<Reserve>>{
                 override fun onSuccess(t: List<Reserve>) {
-                    bindPieChart(t)
+                    if (t.isEmpty()){
+                        txt_no_found_chart_pie.visibility = View.VISIBLE
+                        chart_customers_analysis_pie.visibility = View.GONE
+                    }else{
+                        bindPieChart(t)
+                    }
                 }
 
                 override fun onSubscribe(d: Disposable) {

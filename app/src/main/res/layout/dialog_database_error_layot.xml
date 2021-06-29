@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_margin="18dp"
+        app:srcCompat="@drawable/ic_error"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_title_dialog"
+        android:text="حذف ممکن نیست"
+        android:gravity="center"
+        style="@style/BoldTextStyle"
+        android:textSize="16sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/txt_content_dialog"
+        android:text="این غذا در جایی از اطلاعات استفاده شده. لطفا قبل از حذف داده های مرتبط را بررسی نمایید"
+        style="@style/ThinTextStyle"
+        android:layout_margin="8dp"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/btn_cancel_dialog"
+        android:layout_height="wrap_content"
+        style="@style/DefaultTextStyle"
+        android:text="تایید"/>
+
+
+</LinearLayout>

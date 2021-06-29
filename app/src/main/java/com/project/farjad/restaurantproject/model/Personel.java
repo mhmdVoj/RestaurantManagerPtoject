@@ -2,10 +2,13 @@ package com.project.farjad.restaurantproject.model;
 
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(foreignKeys = @ForeignKey(entity = Semat.class,
+parentColumns = "id",
+childColumns = "id_semat"))
 public class Personel {
     @PrimaryKey(autoGenerate =true) private long id;
     private String name;

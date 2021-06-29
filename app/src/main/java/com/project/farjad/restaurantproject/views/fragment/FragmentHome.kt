@@ -3,6 +3,7 @@ package com.project.farjad.restaurantproject.views.fragment
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
@@ -40,7 +41,10 @@ public class FragmentHome : Fragment()
     private lateinit var adapterNeoGhaza : NoeGhazaAdapter
     private lateinit var adapterGhaza : GhazaApadter
     private lateinit var adapterComment : CommentAdapter
-    lateinit var viewModel: HomeViewModel
+    private val viewModel: HomeViewModel by lazy (LazyThreadSafetyMode.NONE) {
+        ViewModelProvider(this,MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao()))
+            .get(HomeViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,8 +62,10 @@ public class FragmentHome : Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel= ViewModelProvider(this,MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao())).get(HomeViewModel::class.java)
         viewModel.allGhazas.observe(viewLifecycleOwner, Observer { foods->
+            foods.forEach {
+                it.type = viewModel.getTypeGhaza(it.id_noeGhaza)
+            }
             initFoodsRecyclerView(foods)
             initSlider(foods)
         })
@@ -80,7 +86,7 @@ public class FragmentHome : Fragment()
             for (i in it.indices) {
                 for (j in it[i].bazKhordList.indices) {
                     it[i].bazKhordList[j].nameMosh = it[i].moshtari.name
-                    it[i].bazKhordList[j].nameGhaz = viewModel.getGhazaName(it[i].bazKhordList[j].id_ghaza)
+                    it[i].bazKhordList[j].nameGhaz = viewModel.getGhazaName(it[i].bazKhordList[j].idGhaza)
                     allBaz.add(it[i].bazKhordList[j])
                 }
             }
@@ -112,7 +118,7 @@ public class FragmentHome : Fragment()
         rcl_favorites_foods.adapter = adapterGhaza
     }
 
-    private fun initCommentRecyclerView(bazKhord: List<BazKhord>){
+    private fun initCommentRecyclerView(bazKhord: MutableList<BazKhord>){
         adapterComment = CommentAdapter(bazKhord.subList(0,2))
         rcl_last_comments.layoutManager =LinearLayoutManager(context,RecyclerView.VERTICAL,false)
         rcl_last_comments.isNestedScrollingEnabled = false;

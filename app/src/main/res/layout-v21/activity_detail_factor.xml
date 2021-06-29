@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorWhiteBack"
     android:layoutDirection="ltr"
+    android:background="@color/colorWhiteBack"
     android:id="@+id/container_detail_factor"
     android:layout_height="match_parent"
     tools:context=".views.DetailFactorActivity">
@@ -82,10 +82,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="حذف فاکتور"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:fontFamily="@font/dana_medium"
+                style="@style/ThinTextStyle"
                 android:id="@+id/btn_delete_factor"
-                android:textColor="@color/colorButtonRed"
+                android:backgroundTint="@color/colorButtonRed"
+                android:textColor="@color/colorWhite"
                 android:layout_gravity="center|left"
                 android:layout_margin="4dp"/>
         </FrameLayout>
@@ -120,15 +120,14 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_pay_factor_detail"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            style="@style/DefaultTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"
-            android:textColor="@color/colorTextDark"
             android:layout_centerVertical="true"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/dana_medium"
+            android:backgroundTint="#99f3bd"
             android:text="پرداخت"
             app:icon="@drawable/ic_shopping"
             app:iconTint="@color/colorTextDark" />
@@ -152,6 +151,7 @@
         android:id="@+id/btn_add_riz"
         android:layout_gravity="bottom|right"
         app:srcCompat="@drawable/ic_plus"
+        android:backgroundTint="@color/design_default_color_primary"
         android:layout_marginBottom="70dp"
         android:layout_marginRight="12sp"
         app:tint="@color/colorDiselectItems"/>

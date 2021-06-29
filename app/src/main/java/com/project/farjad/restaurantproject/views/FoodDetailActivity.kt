@@ -1,5 +1,6 @@
 package com.project.farjad.restaurantproject.views
 
+import android.database.sqlite.SQLiteConstraintException
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +21,7 @@ import com.project.farjad.restaurantproject.model.Ghaza
 import com.project.farjad.restaurantproject.model.classHelpers.GhazaWithBazkhord
 import com.project.farjad.restaurantproject.tools.MainViewModelFactory
 import com.project.farjad.restaurantproject.viewModels.DetailFoodViewModel
+import com.project.farjad.restaurantproject.views.dialogs.DatabaseAlertDialog
 import com.project.farjad.restaurantproject.views.dialogs.EditFoodDialog
 import kotlinx.android.synthetic.main.activity_detail.*
 
@@ -37,7 +40,7 @@ class FoodDetailActivity : AppCompatActivity(), EditFoodDialog.onEditFoodListene
             for (i in ghaza.indices) {
                 Log.i(
                     "TAG",
-                    "onCreate: " + ghaza[i].bazKhordList.size + " have " + ghaza[i].ghaza.name + ghaza[i].ghaza.id
+                    "onCreate: " + ghaza[i].bazKhordList.size + " have " + ghaza[i].ghaza.name + ghaza[i].ghaza.id_noeGhaza
                 )
                 if (ghaza[i].ghaza.id == Localghaza.id) {
                     initCommentRecyclerView(ghaza[i].bazKhordList)
@@ -48,15 +51,15 @@ class FoodDetailActivity : AppCompatActivity(), EditFoodDialog.onEditFoodListene
         btn_back_detail.setOnClickListener { onBackPressed() }
 
         btn_edit_food_detail.setOnClickListener {
-            val popupMenu : PopupMenu = PopupMenu(this,btn_edit_food_detail)
-            popupMenu.menuInflater.inflate(R.menu.menu_edit_more_food,popupMenu.menu)
+            val popupMenu: PopupMenu = PopupMenu(this, btn_edit_food_detail)
+            popupMenu.menuInflater.inflate(R.menu.menu_edit_more_food, popupMenu.menu)
             popupMenu.setOnMenuItemClickListener {
-                when(it.itemId){
-                    R.id.edit_food_menu->{
+                when (it.itemId) {
+                    R.id.edit_food_menu -> {
                         EditFoodDialog(Localghaza, this)
                             .show(supportFragmentManager, "edt")
                     }
-                    R.id.delete_food_menu->{
+                    R.id.delete_food_menu -> {
                         deleteFood()
                     }
                 }
@@ -67,13 +70,19 @@ class FoodDetailActivity : AppCompatActivity(), EditFoodDialog.onEditFoodListene
     }
 
     private fun deleteFood() {
-        viewModel.deleteFood(Localghaza)
-        finish()
+        try {
+            viewModel.deleteFood(Localghaza)
+            finish()
+            Toast.makeText(this, "حذف با موفقیت انجام شد", Toast.LENGTH_SHORT).show()
+        } catch (exception: SQLiteConstraintException) {
+            DatabaseAlertDialog("غذا").show(supportFragmentManager, "tag")
+        }
     }
 
     private fun getFoodData() {
         val intent = intent
         Localghaza = intent.getParcelableExtra("food") as Ghaza
+        Log.i("TAG", "getFoodData: ${Localghaza.id_noeGhaza}")
         if (Localghaza != null) {
             txt_name_food_detail.text = Localghaza.name
             img_food_detail.setImageURI(Localghaza.imgGhaza)
@@ -87,7 +96,7 @@ class FoodDetailActivity : AppCompatActivity(), EditFoodDialog.onEditFoodListene
         }
     }
 
-    private fun initCommentRecyclerView(comments: List<BazKhord>) {
+    private fun initCommentRecyclerView(comments: MutableList<BazKhord>) {
         comments.forEach {
             val str = viewModel.getMoshtariName(it.id_moshtari)
             it.nameMosh = str
@@ -109,7 +118,7 @@ class FoodDetailActivity : AppCompatActivity(), EditFoodDialog.onEditFoodListene
 
     override fun onUpdateFood(ghaza: Ghaza?) {
         viewModel.updateFood(ghaza)
-        txt_price_food_detail.text =  "${ghaza?.gheymat} تومان "
+        txt_price_food_detail.text = "${ghaza?.gheymat} تومان "
         if (ghaza!!.isMojodi)
             txt_isMojood_detail.text = "موجود"
         else txt_isMojood_detail.text = "تمام شده"

@@ -54,7 +54,6 @@ public class FactorAdapter(private val list : MutableList<Factor>,private val ca
             }
         }
         notifyDataSetChanged()
-
     }
 
     override fun onBindViewHolder(holder: FactorViewHolder, position: Int) {

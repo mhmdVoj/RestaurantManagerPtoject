@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,9 +27,17 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_personnel.*
 
 class FragmentPersonnel : Fragment() {
-    lateinit var viewModel: PersonnelViewModel
     var visiSearchBar =false
+
     lateinit var adapter : PersonnelAdapter
+
+    val viewModel : PersonnelViewModel by lazy (LazyThreadSafetyMode.NONE) {
+        ViewModelProvider(
+            this,
+            MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao())
+        ).get(PersonnelViewModel::class.java)
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,13 +47,13 @@ class FragmentPersonnel : Fragment() {
         return inflater.inflate(R.layout.fragment_personnel, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadPersonnel()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(
-            this,
-            MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao())
-        )
-            .get(PersonnelViewModel::class.java)
 
         viewModel.allPersonels.observe(viewLifecycleOwner, Observer {
             it.forEach { personel ->
@@ -66,6 +75,7 @@ class FragmentPersonnel : Fragment() {
             }
 
         }
+
 
         edt_search_personnel.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {

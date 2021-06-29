@@ -31,9 +31,14 @@ import com.project.farjad.restaurantproject.views.ListReportActivity
 import kotlinx.android.synthetic.main.fragment_pays.*
 
 public class FragmentPays : Fragment(), FactorAdapter.onFactorItemListener {
-    lateinit var viewModel: FinancialFragmentViewModel
-
-
+    private val viewModel: FinancialFragmentViewModel by lazy (LazyThreadSafetyMode.NONE) {
+        ViewModelProvider(
+            this,
+            MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao())
+        ).get(
+            FinancialFragmentViewModel::class.java
+        )
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,12 +49,6 @@ public class FragmentPays : Fragment(), FactorAdapter.onFactorItemListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(
-            this,
-            MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao())
-        ).get(
-            FinancialFragmentViewModel::class.java
-        )
         viewModel.lastFactors.observe(viewLifecycleOwner, Observer {
             it.forEach { factor ->
                 factor.moshName = viewModel.getMoshtariName(factor.idMoshtari)

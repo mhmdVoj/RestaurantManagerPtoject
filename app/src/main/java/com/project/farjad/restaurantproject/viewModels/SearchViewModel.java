@@ -40,6 +40,9 @@ public class SearchViewModel extends ViewModel {
                     }
                 });
     }
+    public String getTypeGhaza(long id){
+        return restaurantDao.getNoeGhaza(id).getName();
+    }
 
     public LiveData<List<Ghaza>> getAllGhaza() {
         return allGhaza;

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     android:orientation="vertical"
     tools:context=".views.ChartActivity">
     <LinearLayout
@@ -29,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_title_new_moshtari"
-                android:text="نمودار فروش"
+                android:text="نمودار و آنالیز"
                 android:textSize="18sp"
                 android:layout_toLeftOf="@+id/btn_back_chart"
                 android:layout_centerInParent="true"
@@ -46,6 +47,19 @@
             style="@style/DefaultTextStyle"
             android:textSize="16sp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:id="@+id/txt_no_found_chart"
+            android:padding="12dp"
+            style="@style/ThinTextStyle"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="داده های شما برای نمایش این نمودار کافی نیست"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="280dp"
@@ -59,6 +73,18 @@
             android:layout_margin="8dp"
             style="@style/DefaultTextStyle"
             android:textSize="16sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:id="@+id/txt_no_found_chart_pie"
+            android:padding="12dp"
+            style="@style/ThinTextStyle"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="داده های شما برای نمایش این نمودار کافی نیست"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

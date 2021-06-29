@@ -1,5 +1,6 @@
 package com.project.farjad.restaurantproject.views
 
+import android.database.sqlite.SQLiteConstraintException
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,9 +21,9 @@ import com.project.farjad.restaurantproject.model.Pardakhtha
 import com.project.farjad.restaurantproject.model.Reserve
 import com.project.farjad.restaurantproject.tools.MainViewModelFactory
 import com.project.farjad.restaurantproject.viewModels.CustomerDetailViewModel
-import com.project.farjad.restaurantproject.views.dialogs.EditFoodDialog
+import com.project.farjad.restaurantproject.views.dialogs.DatabaseAlertDialog
 import kotlinx.android.synthetic.main.activity_customer_detail.*
-import kotlinx.android.synthetic.main.activity_detail.*
+
 
 class CustomerDetailActivity : AppCompatActivity() {
     lateinit var localMoshtari : Moshtari
@@ -70,8 +71,8 @@ class CustomerDetailActivity : AppCompatActivity() {
             popupMenu.setOnMenuItemClickListener {
                 when(it.itemId){
                     R.id.delete_customer_menu->{
-                        viewModel.deleteMoshtari(localMoshtari);
-                        finish()
+                        deleteCustomer()
+
                     }
                 }
                 true
@@ -81,6 +82,15 @@ class CustomerDetailActivity : AppCompatActivity() {
 
         btn_back_detail_customer.setOnClickListener {
             onBackPressed()
+        }
+    }
+
+    private fun deleteCustomer() {
+        try {
+            viewModel.deleteMoshtari(localMoshtari);
+            finish()
+        }catch (error : SQLiteConstraintException){
+            DatabaseAlertDialog("مشتری").show(supportFragmentManager,"tag")
         }
     }
 
@@ -111,7 +121,7 @@ class CustomerDetailActivity : AppCompatActivity() {
     }
 
 
-    fun initCommentsRecyclerView(bazKhord: List<BazKhord>){
+    fun initCommentsRecyclerView(bazKhord: MutableList<BazKhord>){
         adapterBazkhord = CommentAdapter(bazKhord)
         if (adapterBazkhord.itemCount != 0)
             txt_no_found_comment_this_cus.visibility = View.GONE

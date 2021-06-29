@@ -26,21 +26,25 @@ import java.io.FileNotFoundException
 
 class AddFoodActivity : AppCompatActivity(), SelectTypeFoodDialog.onTypeFoodClickListener {
 
-    lateinit var imageView : ImageView
-    private var nameFood : String = ""
-    private var geymatFood : String = ""
+    lateinit var imageView: ImageView
+    private var nameFood: String = ""
+    private var geymatFood: String = ""
     private var imgFood = "https://www.izorzok.hu/wp-content/uploads/2020/01/placeholder.png"
-    private var tozihFood : String = ""
-    private var noeGhaza : NoeGhaza? = null
+    private var tozihFood: String = ""
+    private var noeGhaza: NoeGhaza? = null
     lateinit var viewModel: FoodChangeViewModel
-    private var mojodiFood  = true
+    private var mojodiFood = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_food)
         imageView = findViewById(R.id.img_pic_new_food)
-        viewModel= ViewModelProvider(this,
-            MainViewModelFactory(AppDatabase.getAppDatabase(this).restaurantDao())
+
+
+
+        viewModel =ViewModelProvider(
+                this,
+        MainViewModelFactory(AppDatabase.getAppDatabase(this).restaurantDao())
         ).get(FoodChangeViewModel::class.java)
 
         switch_select_new_food.setOnCheckedChangeListener { _, p1 -> mojodiFood = p1 }
@@ -56,8 +60,8 @@ class AddFoodActivity : AppCompatActivity(), SelectTypeFoodDialog.onTypeFoodClic
         btn_back_new_food.setOnClickListener { onBackPressed() }
 
         btn_select_type_food.setOnClickListener {
-            SelectTypeFoodDialog(viewModel.allNoeGhaza.value,this)
-                .show(supportFragmentManager,"tag")
+            SelectTypeFoodDialog(viewModel.allNoeGhaza.value, this)
+                .show(supportFragmentManager, "tag")
         }
 
         btn_submit_food.setOnClickListener {
@@ -66,37 +70,39 @@ class AddFoodActivity : AppCompatActivity(), SelectTypeFoodDialog.onTypeFoodClic
     }
 
     private fun checkFoodValidation() {
-        if (edt_select_name_food.text.toString() != ""){
-            if (edt_select_price_food.text.toString() != ""){
-                if (edt_select_tozih_food.toString() != ""){
-                    if (noeGhaza != null){
+        if (edt_select_name_food.text.toString() != "") {
+            if (edt_select_price_food.text.toString() != "") {
+                if (edt_select_tozih_food.toString() != "") {
+                    if (noeGhaza != null) {
                         nameFood = edt_select_name_food.text.toString()
                         geymatFood = edt_select_price_food.text.toString()
-                        tozihFood =edt_select_tozih_food.text.toString()
-                        submitFood(nameFood,geymatFood,tozihFood,noeGhaza as NoeGhaza,imgFood)
-                    }else{
-                        Toast.makeText(this,"نوع غذا را تعیین نکرده اید",Toast.LENGTH_SHORT).show()
+                        tozihFood = edt_select_tozih_food.text.toString()
+                        submitFood(nameFood, geymatFood, tozihFood, noeGhaza as NoeGhaza, imgFood)
+                    } else {
+                        Toast.makeText(this, "نوع غذا را تعیین نکرده اید", Toast.LENGTH_SHORT)
+                            .show()
                     }
-                }else{
+                } else {
                     edt_select_tozih_food.error = "توضیحات غذا را کامل کنید"
                 }
-            }else{
-                edt_select_price_food.error="لطفا قیمت را مشخص کیند"
+            } else {
+                edt_select_price_food.error = "لطفا قیمت را مشخص کیند"
             }
-        }else{
+        } else {
             edt_select_name_food.error = "لطفا نام غذا را وارد نمایید"
         }
     }
 
     private fun submitFood(nameFood: String, geymatFood: String, tozihFood: String, noeGhaza: NoeGhaza, imgFood: String) {
-        val ghaza = Ghaza()
-        ghaza.name = nameFood
-        ghaza.gheymat = geymatFood
-        ghaza.tozih = tozihFood
-        ghaza.id_noeGhaza =noeGhaza.id
-        ghaza.imgGhaza = imgFood
-        ghaza.isMojodi = mojodiFood
-        ghaza.type = noeGhaza.name
+        val ghaza = Ghaza().apply {
+            name = nameFood
+            gheymat = geymatFood
+            tozih = tozihFood
+            id_noeGhaza = noeGhaza.id
+            imgGhaza = imgFood
+            isMojodi = mojodiFood
+            type = noeGhaza.name
+        }
         viewModel.addFood(ghaza)
         finish()
     }

@@ -2,14 +2,18 @@ package com.project.farjad.restaurantproject.model;
 
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(foreignKeys = @ForeignKey(entity = Moshtari.class,
+        parentColumns = "id",
+        childColumns = "idMoshtari",
+        onDelete = ForeignKey.RESTRICT))
 public class Pardakhtha {
 
-    @PrimaryKey(autoGenerate = true) private long id;
-    private long idFactor;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
     private String tarikhPardakht;
     private String noePardakht;
     private String shomarePeygiri;
@@ -17,8 +21,10 @@ public class Pardakhtha {
     private long idMoshtari;
     private String shomareFactor;
 
-    @Ignore private boolean isExpend;
-    @Ignore private String moshName;
+    @Ignore
+    private boolean isExpend;
+    @Ignore
+    private String moshName;
 
 
     public boolean isExpend() {
@@ -37,13 +43,6 @@ public class Pardakhtha {
         this.id = id;
     }
 
-    public long getIdFactor() {
-        return idFactor;
-    }
-
-    public void setIdFactor(long idFactor) {
-        this.idFactor = idFactor;
-    }
 
     public String getTarikhPardakht() {
         return tarikhPardakht;

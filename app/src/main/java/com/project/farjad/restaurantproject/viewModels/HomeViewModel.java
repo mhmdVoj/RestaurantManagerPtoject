@@ -155,6 +155,10 @@ public class HomeViewModel extends ViewModel {
         return restaurantDao.getFood(id).getName();
     }
 
+    public String getTypeGhaza(long id){
+        return restaurantDao.getNoeGhaza(id).getName();
+    }
+
     public LiveData<Boolean> getTypeFoodPrg() {
         return TypeFoodPrg;
     }

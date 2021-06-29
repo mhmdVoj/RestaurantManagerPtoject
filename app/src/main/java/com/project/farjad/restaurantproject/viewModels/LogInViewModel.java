@@ -17,10 +17,10 @@ public class LogInViewModel extends ViewModel {
 
     public void addData() {
         prg.setValue(true);
-        for (int i = 0; i < DataFakerGenerator.getGhaza().size(); i++) { restaurantDao.addFood(DataFakerGenerator.getGhaza().get(i)); }
         for (int i = 0; i < DataFakerGenerator.getNoeGahaza().size(); i++) { restaurantDao.addTypeFood(DataFakerGenerator.getNoeGahaza().get(i)); }
-        for (int i = 0; i < DataFakerGenerator.getComments().size(); i++) { restaurantDao.addComment(DataFakerGenerator.getComments().get(i)); }
+        for (int i = 0; i < DataFakerGenerator.getGhaza().size(); i++) { restaurantDao.addFood(DataFakerGenerator.getGhaza().get(i)); }
         for (int i = 0; i < DataFakerGenerator.getMoshtaris().size(); i++) { restaurantDao.addCustomer(DataFakerGenerator.getMoshtaris().get(i)); }
+        for (int i = 0; i < DataFakerGenerator.getComments().size(); i++) { restaurantDao.addComment(DataFakerGenerator.getComments().get(i)); }
         for (int i = 0; i < DataFakerGenerator.getSemasts().size(); i++) { restaurantDao.addSemat(DataFakerGenerator.getSemasts().get(i)); }
         for (int i = 0; i < DataFakerGenerator.getPersonnel().size(); i++) { restaurantDao.addPersonnel(DataFakerGenerator.getPersonnel().get(i)); }
         prg.setValue(false);

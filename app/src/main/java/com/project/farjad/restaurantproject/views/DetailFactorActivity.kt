@@ -23,34 +23,40 @@ import com.project.farjad.restaurantproject.views.fragment.FragmentSelectFood
 import kotlinx.android.synthetic.main.activity_detail_factor.*
 
 class DetailFactorActivity : AppCompatActivity() {
-    lateinit var localFactor : Factor
+    lateinit var localFactor: Factor
     lateinit var localRizFactor: List<RizFactor>
-    lateinit var viewModel : FactorChangeViewModel
-    var allPrice : Int = 0
+    lateinit var viewModel: FactorChangeViewModel
+    var allPrice: Int = 0
     lateinit var adapter: RizFactorAdapter
+    var rizIsEmpty = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_factor)
 
 
-        viewModel = ViewModelProvider(this,MainViewModelFactory(AppDatabase.getAppDatabase(this).restaurantDao())).get(
-            FactorChangeViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            MainViewModelFactory(AppDatabase.getAppDatabase(this).restaurantDao())
+        ).get(
+            FactorChangeViewModel::class.java
+        )
 
         viewModel.factorRizFactors.observe(this, Observer {
             it.forEach { factorWithRizFactor ->
                 if (factorWithRizFactor.factor.id == localFactor.id) {
-                    if (factorWithRizFactor.rizFactorList.size >0){
+                    if (factorWithRizFactor.rizFactorList.size > 0) {
                         factorWithRizFactor.rizFactorList.forEach { rizFactor ->
-                            Log.i("TAG", "onCreate: ${rizFactor.idGhaza}")
                             rizFactor.ghazaName = viewModel.getGhaza(rizFactor.idGhaza).name
-                            rizFactor.geymatGhaza = viewModel.getGhaza(rizFactor.idGhaza).gheymat.toInt()
+                            rizFactor.geymatGhaza =
+                                viewModel.getGhaza(rizFactor.idGhaza).gheymat.toInt()
                             rizFactor.urlImgGhaza = viewModel.getGhaza(rizFactor.idGhaza).imgGhaza
                             rizFactor.noeGhaza = viewModel.getGhaza(rizFactor.idGhaza).type
                             rizFactor.isFactorIsPar = (localFactor.isPardakhtShode)
                         }
                         initRizFactorRecyclerView(factorWithRizFactor.rizFactorList)
                         localRizFactor = factorWithRizFactor.rizFactorList
+                        rizIsEmpty = false
                     }
                 }
             }
@@ -64,18 +70,23 @@ class DetailFactorActivity : AppCompatActivity() {
             val transaction =
                 supportFragmentManager.beginTransaction()
             transaction.add(
-                R.id.container_detail_factor, FragmentSelectFood(object : FragmentSelectFood.onSelcetionFoodListener{
+                R.id.container_detail_factor,
+                FragmentSelectFood(object : FragmentSelectFood.onSelcetionFoodListener {
                     override fun onFoodReceived(ghaza: Ghaza) {
-                        if (ghaza.isMojodi){
+                        if (ghaza.isMojodi) {
                             val rizFactor = RizFactor()
-                            rizFactor.idFactor =localFactor.id
+                            rizFactor.idFactor = localFactor.id
                             rizFactor.idGhaza = ghaza.id
                             rizFactor.tedad = 1
                             rizFactor.jameFactor = ghaza.gheymat.toInt()
                             viewModel.addRizFactor(rizFactor)
                             refreshFactor(ghaza.gheymat.toInt())
-                        }else {
-                            Toast.makeText(this@DetailFactorActivity,"متاسفیم، موجودی این غذا تمام شده",Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(
+                                this@DetailFactorActivity,
+                                "متاسفیم، موجودی این غذا تمام شده",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 })
@@ -85,23 +96,25 @@ class DetailFactorActivity : AppCompatActivity() {
         }
 
         btn_delete_factor.setOnClickListener {
-            localRizFactor.forEach {
-                viewModel.deleteRiz(it)
+            if (!rizIsEmpty) {
+                localRizFactor.forEach {
+                    viewModel.deleteRiz(it)
+                }
             }
             viewModel.deleteFactor(localFactor)
             finish()
         }
 
         btn_pay_factor_detail.setOnClickListener {
-            if (localFactor.jameKol==0){
-                Toast.makeText(this,"مبلغ این فاکتور صفر است",Toast.LENGTH_LONG).show()
-            }else{
+            if (localFactor.jameKol == 0) {
+                Toast.makeText(this, "مبلغ این فاکتور صفر است", Toast.LENGTH_LONG).show()
+            } else {
                 localFactor.isPardakhtShode = true
                 viewModel.updateFactor(localFactor)
                 payTheFactor(localFactor)
                 txt_pay_factor_detail.visibility = View.VISIBLE
-                btn_pay_factor_detail.visibility =View.GONE
-                btn_add_riz.visibility =View.GONE
+                btn_pay_factor_detail.visibility = View.GONE
+                btn_add_riz.visibility = View.GONE
                 viewModel.loadRizFactors()
             }
         }
@@ -110,20 +123,19 @@ class DetailFactorActivity : AppCompatActivity() {
     private fun bindFactorData() {
         localFactor = intent.getParcelableExtra("dataFactor") as Factor
         txt_number_fac_detail.text = "شماره فاکتور ${localFactor.shomareFactor}"
-        txt_mosh_name_detail_fac.text =localFactor.moshName
+        txt_mosh_name_detail_fac.text = localFactor.moshName
         txt_date_fac_detail.text = localFactor.tarikh
         txt_jamel_factor_detail.text = "جمع فاکتور : ${localFactor.jameKol} تومان"
-        if (localFactor.isPardakhtShode){
-            txt_pay_factor_detail.visibility =View.VISIBLE
-            btn_pay_factor_detail.visibility =View.GONE
-            btn_add_riz.visibility =View.GONE
+        if (localFactor.isPardakhtShode) {
+            txt_pay_factor_detail.visibility = View.VISIBLE
+            btn_pay_factor_detail.visibility = View.GONE
+            btn_add_riz.visibility = View.GONE
         }
         allPrice = localFactor.jameKol
     }
 
     private fun payTheFactor(factor: Factor) {
         val pardakhtha = Pardakhtha()
-        pardakhtha.idFactor = factor.id
         pardakhtha.noePardakht = "نقدی"
         pardakhtha.isExpend = false
         pardakhtha.shomareFactor = factor.shomareFactor.toString()
@@ -134,21 +146,21 @@ class DetailFactorActivity : AppCompatActivity() {
         viewModel.addPay(pardakhtha)
     }
 
-    private fun initRizFactorRecyclerView(list : MutableList<RizFactor>){
-        adapter = RizFactorAdapter(list,object : RizFactorAdapter.onRizFactorItemListener {
+    private fun initRizFactorRecyclerView(list: MutableList<RizFactor>) {
+        adapter = RizFactorAdapter(list, object : RizFactorAdapter.onRizFactorItemListener {
             override fun onUpdate(rizFactor: RizFactor, state: String) {
-                if (state == "plus"){
+                if (state == "plus") {
                     rizFactor.tedad++
                     rizFactor.jameFactor = rizFactor.jameFactor + rizFactor.geymatGhaza
                     viewModel.updateRizFactor(rizFactor)
                     adapter.updateRiz(rizFactor)
                     refreshFactor(rizFactor.geymatGhaza)
-                }else{
-                    if (rizFactor.tedad == 1){
+                } else {
+                    if (rizFactor.tedad == 1) {
                         viewModel.deleteRiz(rizFactor)
                         refreshFactor(-rizFactor.jameFactor)
                         adapter.removeRiz(rizFactor)
-                    }else{
+                    } else {
                         rizFactor.tedad--
                         rizFactor.jameFactor = rizFactor.jameFactor - rizFactor.geymatGhaza
                         viewModel.updateRizFactor(rizFactor)
@@ -158,14 +170,14 @@ class DetailFactorActivity : AppCompatActivity() {
                 }
             }
         })
-        rcl_riz_detail_fac.layoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)
+        rcl_riz_detail_fac.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rcl_riz_detail_fac.adapter = adapter
-        if (adapter.itemCount!=0){
+        if (adapter.itemCount != 0) {
             txt_no_found_riz.visibility = View.GONE
         }
     }
 
-    private fun refreshFactor(newRizPrice : Int){
+    private fun refreshFactor(newRizPrice: Int) {
         allPrice += newRizPrice
         localFactor.jameKol = allPrice
         viewModel.updateFactor(localFactor)

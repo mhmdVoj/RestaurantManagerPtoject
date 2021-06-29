@@ -1,12 +1,17 @@
 package com.project.farjad.restaurantproject.model;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(foreignKeys = @ForeignKey(entity = Moshtari.class,
+        parentColumns = "id",
+        childColumns = "idMoshtari",
+        onDelete = ForeignKey.RESTRICT))
 public class Reserve {
-    @PrimaryKey(autoGenerate = true) private long id;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
     private boolean isVip;
     private String tarikhSabtReserve;
     private String saatReserve;
@@ -16,7 +21,8 @@ public class Reserve {
     private String tedad;
     private long idMoshtari;
 
-    @Ignore private String nameMosh;
+    @Ignore
+    private String nameMosh;
 
     public long getId() {
         return id;

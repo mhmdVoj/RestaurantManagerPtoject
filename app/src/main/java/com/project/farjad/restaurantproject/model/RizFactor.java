@@ -2,23 +2,40 @@ package com.project.farjad.restaurantproject.model;
 
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(foreignKeys = {
+        @ForeignKey(entity = Factor.class,
+                parentColumns = "id",
+                childColumns = "idFactor",
+                onDelete = ForeignKey.SET_NULL),
+        @ForeignKey(entity = Ghaza.class,
+                parentColumns = "id",
+                childColumns = "idGhaza",
+                onDelete = ForeignKey.RESTRICT,
+                onUpdate = ForeignKey.CASCADE)}
+)
 public class RizFactor {
-    @PrimaryKey(autoGenerate = true) private long id;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
     private int jameFactor;
     private int tedad;
     private long idGhaza;
     private long idFactor;
-
-    @Ignore private String ghazaName;
-    @Ignore private int shomareFactor;
-    @Ignore private int geymatGhaza;
-    @Ignore private String urlImgGhaza;
-    @Ignore private String noeGhaza;
-    @Ignore private boolean factorIsPar;
+    @Ignore
+    private String ghazaName;
+    @Ignore
+    private int shomareFactor;
+    @Ignore
+    private int geymatGhaza;
+    @Ignore
+    private String urlImgGhaza;
+    @Ignore
+    private String noeGhaza;
+    @Ignore
+    private boolean factorIsPar;
 
 
     public String getGhazaName() {

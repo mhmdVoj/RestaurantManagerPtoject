@@ -36,10 +36,9 @@
             android:id="@+id/btn_go_pay_factor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/dana_medium"
             android:text="پرداخت"
-            android:textColor="#008336"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:backgroundTint="@color/colorGreenLight"
+            style="@style/DefaultTextStyle"
              />
     </LinearLayout>
 

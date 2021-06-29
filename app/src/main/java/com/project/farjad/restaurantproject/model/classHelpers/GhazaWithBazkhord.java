@@ -12,7 +12,7 @@ public class GhazaWithBazkhord {
     @Embedded public Ghaza ghaza;
     @Relation(
             parentColumn = "id",
-            entityColumn = "id_ghaza"
+            entityColumn = "idGhaza"
     )
     public List<BazKhord> bazKhordList;
 

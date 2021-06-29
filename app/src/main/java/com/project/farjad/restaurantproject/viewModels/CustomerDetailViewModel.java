@@ -23,7 +23,6 @@ public class CustomerDetailViewModel extends ViewModel {
     private MutableLiveData<List<MoshtariWithBazkhord>> allBazkhords = new MutableLiveData<>();
     private MutableLiveData<List<MoshtariWithReseve>> allReserve =new MutableLiveData<>();
     private MutableLiveData<List<MoshtariWithPay>> allPays = new MutableLiveData<>();
-    private MutableLiveData<Integer> ReserveCount = new MutableLiveData<>();
     private RestaurantDao restaurantDao;
 
     public CustomerDetailViewModel(RestaurantDao restaurantDao) {

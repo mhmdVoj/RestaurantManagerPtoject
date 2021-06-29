@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:background="@color/colorWhiteBack"
     android:orientation="vertical"
-    android:layoutDirection="ltr"
     android:id="@+id/container_new_factor"
+    android:layoutDirection="ltr"
     android:layout_height="match_parent"
     tools:context=".views.AddFactorActivity">
 
@@ -122,7 +122,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:textSize="18sp"
-                style="@style/DefaultTextStyle" />
+                style="@style/DefaultTextStyle"
+                android:backgroundTint="@color/colorGreenLight" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,7 +137,7 @@
                     android:text=" تایید وباز کردن فاکتور"
                     android:id="@+id/btn_submit_factor_and_go"
                     android:layout_gravity="center"
-                    android:layout_margin="6dp"
+                    android:layout_margin="8dp"
                     android:textColor="@color/colorGreenDark"
                     android:textSize="14sp"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
@@ -146,7 +147,7 @@
                     android:text="مشاهده لیست فاکتور ها"
                     android:id="@+id/btn_show_list_factors_new"
                     android:layout_gravity="center"
-                    android:layout_margin="6dp"
+                    android:layout_margin="8dp"
                     android:fontFamily="@font/dana_medium"
                     android:textSize="14sp"
                     android:textColor="@color/colorBlueLight"

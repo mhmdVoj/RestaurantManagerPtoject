@@ -8,10 +8,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.farjad.restaurantproject.R
 import com.project.farjad.restaurantproject.model.BazKhord
+import com.project.farjad.restaurantproject.model.Moshtari
 import com.project.farjad.restaurantproject.model.classHelpers.MoshtariWithBazkhord
 import kotlinx.android.synthetic.main.commet_item_layout.view.*
 
-public class CommentAdapter(private val comments : List<BazKhord> ) : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
+public class CommentAdapter(private val comments : MutableList<BazKhord> ) : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
+
+    private var filterCommets : MutableList<BazKhord>
+
+    init {
+        filterCommets = comments
+    }
     class CommentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val txt_content : TextView = itemView.findViewById(R.id.txt_contnet_comment)
         private val txt_date : TextView = itemView.findViewById(R.id.txt_date_comment)
@@ -25,11 +32,25 @@ public class CommentAdapter(private val comments : List<BazKhord> ) : RecyclerVi
         }
     }
 
+    fun filterCustomers(s : String){
+        filterCommets = ArrayList()
+        if (s == "") {
+            filterCommets = comments
+        } else {
+            comments.forEach {
+                if (it.nameMosh.toLowerCase().contains(s.toLowerCase())) {
+                    filterCommets.add(it)
+                }
+            }
+        }
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CommentViewHolder(LayoutInflater.from(parent.context).inflate(
         R.layout.commet_item_layout,parent,false))
-    override fun getItemCount(): Int = comments.size
+    override fun getItemCount(): Int = filterCommets.size
 
     override fun onBindViewHolder(holder: CommentViewHolder, position: Int) {
-        holder.bindComment(comments[position])
+        holder.bindComment(filterCommets[position])
     }
 }

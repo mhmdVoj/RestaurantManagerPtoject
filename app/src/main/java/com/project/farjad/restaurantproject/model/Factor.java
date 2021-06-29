@@ -5,21 +5,27 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(foreignKeys = @ForeignKey(entity = Moshtari.class,
+        parentColumns = "id",
+        childColumns = "idMoshtari",
+        onDelete = ForeignKey.SET_NULL))
 public class Factor implements Parcelable {
-    @PrimaryKey(autoGenerate = true) private long id;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
     private long shomareFactor;
     private long idMoshtari;
     private String tarikh;
     private int jameKol;
     private int takhfif;
     private boolean pardakhtShode;
-
-    @Ignore private String rizNum;
-    @Ignore private String moshName;
+    @Ignore
+    private String rizNum;
+    @Ignore
+    private String moshName;
 
     public long getId() {
         return id;

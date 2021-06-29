@@ -23,7 +23,7 @@ import com.project.farjad.restaurantproject.model.Semat;
 public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase appDatabase;
 
-    public static   AppDatabase getAppDatabase(Context context) {
+    public static  AppDatabase getAppDatabase(Context context) {
         if (appDatabase ==null){
             appDatabase = Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"restaurantDb")
                     .allowMainThreadQueries()

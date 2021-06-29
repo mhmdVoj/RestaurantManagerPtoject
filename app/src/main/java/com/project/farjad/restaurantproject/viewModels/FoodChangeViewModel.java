@@ -70,6 +70,10 @@ public class FoodChangeViewModel extends ViewModel {
         return allNoeGhaza;
     }
 
+    public String getTypeGhaza(long id){
+        return restaurantDao.getNoeGhaza(id).getName();
+    }
+
     public LiveData<List<Ghaza>> getAllFoods() {
         return allFoods;
     }

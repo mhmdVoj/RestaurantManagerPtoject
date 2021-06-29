@@ -77,7 +77,6 @@ public class DataFakerGenerator {
         //ghaza.setImgGhaza(R.drawable.mahi);
         ghaza.setImgGhaza("https://kalleh.com/book/wp-content/uploads/sites/2/2019/02/mahi.jpg");
         ghaza.setNomre(4);
-        ghaza.setType("دریایی");
         ghaza.setMojodi(false);
         ghaza.setTozih("سبزی پلو با ماهی یکی از غذاهای بسیار پر طرفدار و مهم برای ایرانیان است. این غذای خوشمزه علاوه بر اینکه در طول سال طرفداران خاص خودش را دارد به عنوان یک غذای مناسبتی هم شناخته می شود که در شب تحویل سال ( عید نوروز ) طبخ می شود.");
         ghaza.setGheymat("48000");
@@ -88,7 +87,6 @@ public class DataFakerGenerator {
         //ghaza1.setImgGhaza(R.drawable.ghorme_sabzi);
         ghaza1.setImgGhaza("https://blog.okala.com/wp-content/uploads/2020/09/%D9%82%D9%88%D8%B1%D9%85%D9%87-%D8%B3%D8%A8%D8%B2%DB%8C.jpg");
         ghaza1.setNomre(3);
-        ghaza1.setType("خورشتی");
         ghaza1.setMojodi(true);
         ghaza1.setTozih("قورمه سبزی غذای که به جرات می توان گفت بیشتر مردم ایران آن را دوست دارند و در بین مردم طوری جا افتاده است که هر زنی که بتواند قورمه سبزی را به خوبی بپزد یک آشپز کامل و ماهر است . یعنی به عبارتی این غذا نقطه سنجش مهارت آشپزی بانوان ایرانی است. جالب است بدانید که در تمام دنیا نیز اصلالت لیران غذا را منتسب به ایرانی ها می دانند.");
         ghaza1.setGheymat("32000");
@@ -99,7 +97,6 @@ public class DataFakerGenerator {
         //ghaza2.setImgGhaza(R.drawable.burger);
         ghaza2.setImgGhaza("https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/master/pass/Smashburger-recipe-120219.jpg");
         ghaza2.setNomre(4);
-        ghaza2.setType("فست فود");
         ghaza2.setId_noeGhaza(1);
         ghaza2.setMojodi(true);
         ghaza2.setTozih("همبرگر یکی از قدیمی ترین و پرطرفدارترین غذاهای فست فودی محسوب می شود که به عنوان یک غذای بین المللی در سراسر جهان شناخته شده است. محبوبیت همبرگر در جهان خیلی زیاد است و به همین دلیل برگرهای دیگر مثل چیز برگر ، چیکن برگر و … به وجود آمدند.\n" +
@@ -112,7 +109,6 @@ public class DataFakerGenerator {
         //ghaza3.setImgGhaza(R.drawable.salad_sezar);
         ghaza3.setImgGhaza("https://kalleh.com/book/wp-content/uploads/sites/2/2017/12/Untitled-1_32-1.jpg");
         ghaza3.setNomre(2);
-        ghaza3.setType("سالاد");
         ghaza3.setId_noeGhaza(3);
         ghaza3.setMojodi(true);
         ghaza3.setTozih("به گزارش همشهری آنلاین، سالاد سزار شاید بعد از سالاد شیرازی معروف\u200Cترین و محبوب\u200Cترین سالاد در ایران باشد. سالاد پرطرفداری که این روزها در منوی اکثر کافه\u200Cها و رستوران\u200Cهای شهر پیدا می\u200Cشود. جالب است بدانید سالاد سزار اولین بار توسط رستوران\u200Cداری به نام سزار کاردینی در مکزیک تهیه شد.\n" +
@@ -123,7 +119,6 @@ public class DataFakerGenerator {
 
         Ghaza ghaza4 = new Ghaza();
         ghaza4.setName("املت");
-        ghaza4.setType("صبحانه");
         ghaza4.setId_noeGhaza(6);
         //ghaza4.setImgGhaza(R.drawable.omlet);
         ghaza4.setImgGhaza("https://gymito.com/blog/wp-content/uploads/2019/11/%D8%B7%D8%B1%D8%B2-%D8%AA%D9%87%DB%8C%D9%87-%D8%A7%D9%85%D9%84%D8%AA-480x270.jpg");
@@ -137,7 +132,6 @@ public class DataFakerGenerator {
 
         Ghaza ghaza5 = new Ghaza();
         ghaza5.setName("پیتزا گوشت و قارچ");
-        ghaza5.setType("پیتزا");
         ghaza5.setId_noeGhaza(2);
         //ghaza5.setImgGhaza(R.drawable.pizza_ghosht);
         ghaza5.setImgGhaza("https://cdn.sarashpazpapion.com/files/recipes/pictures/web/2016/10/8/t8b6roj4fobce3ohiepofgprmtakikkt.jpg");
@@ -150,7 +144,6 @@ public class DataFakerGenerator {
 
         Ghaza ghaza6 = new Ghaza();
         ghaza6.setName("بستنی میوه ای");
-        ghaza6.setType("بستنی");
         ghaza6.setId_noeGhaza(9);
         //ghaza6.setImgGhaza(R.drawable.bastani_mive);
         ghaza6.setImgGhaza("https://cdn.yjc.ir/files/fa/news/1397/4/19/8297531_512.jpg");
@@ -174,7 +167,6 @@ public class DataFakerGenerator {
         ghaza7.setNomre(3);
         ghaza7.setId_noeGhaza(9);
         ghaza7.setMojodi(true);
-        ghaza7.setType("بستنی");
         ghaza7.setTozih("کیک بستنی ساده یکی از انواع کیک بستنیه که خیلی راحت آماده میشه و طعم بی نظیری داره. توی این دستور شما میتونین هر مقداری که دوست دارین مواد اولیه رو کم یا زیاد کنین. میتونین از انواع کیک ها و بستنی ها استفاده کنین. هیچ محدودیتی توی طعم و اندازه مواد اولیه این کیک بستنی وجود نداره. البته ما توی این دستور از کیک وانیلی به همراه بستنی وانیلی با تکه های کوکی شکلاتی استفاده کردیم که خیلی خوشمزست.");
         ghaza7.setGheymat("32000");
 
@@ -184,7 +176,6 @@ public class DataFakerGenerator {
         ghaza8.setImgGhaza("https://zarinbano.com/wp-content/uploads/%D8%B1%D9%88%D8%B4-%D8%AF%D8%B1%D8%B3%D8%AA-%DA%A9%D8%B1%D8%AF%D9%86-%D8%A8%D8%B3%D8%AA%D9%86%DB%8C-%D8%B4%DA%A9%D9%84%D8%A7%D8%AA%DB%8C-%D8%AF%D8%B1-%D8%AE%D8%A7%D9%86%D9%87.jpg");
         ghaza8.setNomre(4);
         ghaza8.setId_noeGhaza(9);
-        ghaza8.setType("بستنی");
         ghaza8.setMojodi(false);
         ghaza8.setTozih("به گزارش گروه وبگردی باشگاه خبرنگاران جوان؛ بسیاری از افراد تحمل تابستان و هوای گرم آن را ندارد و با فرارسیدن تابستان کلافگی آن ها را فرا میگیرد. را های مختلفی برای مقابله با گرما وجود دارد. بیشتر از افراد به دوش آب سرد و کولر، برخی به استخر وتعدادی نیز سفر و دریا را ترجیح می دهند.");
         ghaza8.setGheymat("6000");
@@ -196,7 +187,6 @@ public class DataFakerGenerator {
         ghaza9.setNomre(4);
         ghaza9.setMojodi(true);
         ghaza9.setId_noeGhaza(9);
-        ghaza9.setType("بستنی");
         ghaza9.setTozih("درست است که این روزها بستنی مدل های مختلفی دارد. بستنی چوبی، اسکوپی و کاسه ای در طعم های مختلف همه جا پیدا میشوند و حتی خوراکی های ترکیبی خوشمزه مثل کیک بستنی، معجون و شیک های متنوع هم هستند. اما بستنی سنتی هنوز هم طرفداران خودش را دارد. هیچ چیزی مثل یک بستنی سنتی با عطر و طعم زعفران و گلاب نیست. بستنی سنتی ایرانی را میتوانید در همه فصل های سال در خانه درست کنید و از آن لذت ببرید. بستنی سنتی با ثعلب تهیه میشود. پس قبل از شروع به تهیه بستنی زعفرانی با ثعلب این پودر را از لوازم قنادی یا عطاری تهیه کنید.");
         ghaza9.setGheymat("10000");
 
@@ -207,7 +197,6 @@ public class DataFakerGenerator {
         ghaza10.setNomre(2);
         ghaza10.setMojodi(false);
         ghaza10.setId_noeGhaza(3);
-        ghaza10.setType("سالاد");
         ghaza10.setTozih("سالاد کلم یکی از سالادهای خوشمزه است که در رستوران ها طرفداران زیادی دارد . سالادها انواع مختلفی دارند و توضیح درباره طرز تهیه آنها پایان ناپذیر است و این به دلیل ترکیب رنگ زیبای این خوراکی های خوشمزه و مهمتر از همه سالم بودن آن هاست و البته برای خیلی از افراد استفاده از سس های مختلف نیز در این غذاها می باشد.\n" +
                 "در واقع می\u200Cتوان با ترکیب\u200Cکردن مواد غذایی سازگار و خوش طعم با یک سس سالاد که آن\u200Cهم سلیقه\u200Cای و متنوع است یک سالاد خوشمزه تهیه کرد. یکی از انواع سالاد خوشمزه، سالاد کلم سفید و هویج است که معمولا در مراسم عروسی و در رستوران\u200Cها یکی از پایه\u200Cهای ثابت میز غذاست.");
         ghaza10.setGheymat("5000");
@@ -219,7 +208,6 @@ public class DataFakerGenerator {
         ghaza11.setNomre(3);
         ghaza11.setMojodi(true);
         ghaza11.setId_noeGhaza(3);
-        ghaza11.setType("سالاد");
         ghaza11.setTozih("سالاد روسی یکی از انواع سالادهای خوشمزه و پرطرفدار در جهان است که همانطور که از نامش مشخص است متعلق به کشور روسیه می باشد. اگر از طرفداران سالاد الویه هستید توصیه می کنیم سالاد روسی را هم امتحان کنید چون این دو سالاد شباهت زیادی با هم دارند.\n" +
                 "\n" +
                 "با موادی که در این دستور آشپزی قرار گرفته است می توانید برای ۴ نفر سالاد روسی تهیه کنید. در صورتی که می خواهید مقدار کمتر یا بیشتری سالاد روسی تهیه کنید کافیست مقدار مواد را ضرب یا تقسیم کنید.");
@@ -232,7 +220,6 @@ public class DataFakerGenerator {
         ghaza12.setNomre(2);
         ghaza12.setMojodi(true);
         ghaza12.setId_noeGhaza(8);
-        ghaza12.setType("دسر");
         ghaza12.setTozih("«من را بالا بکش» یا تیرامیسو نوعی دسر ایتالیایی است که چند سالی است بین ما ایرانی\u200Cها محبوبیت زیادی پیدا کرده است و در انواع کافه\u200Cها و قنادی\u200Cها به چشم می\u200Cخورد. این دسر را اما در خانه هم می\u200Cتوان به راحتی درست کرد و از طعم آن لذت برد. اگر طعم قهوه را دوست دارید حتما تیرامیسو را امتحان و آن را به دسر محبوبتان تبدیل کنید.");
         ghaza12.setGheymat("8800");
 
@@ -244,7 +231,6 @@ public class DataFakerGenerator {
         ghaza13.setNomre(4);
         ghaza13.setMojodi(true);
         ghaza13.setId_noeGhaza(8);
-        ghaza13.setType("دسر");
         ghaza13.setTozih("انواع ژله ساده و تزیین شده چه با بستنی باشد چه با باقالی پلو (شما هم در میهمانی\u200Cها ژله را کنار بشقاب باقالی پلو می\u200Cریزید؟) یک دسر خوش طعم و محبوب برای تمام سنین است. در گذشته ژله را معمولا به صورت ساده و تک رنگ درست می\u200Cکردند اما حالا خانم\u200Cهای کدبانو انواع و اقسام ژله\u200Cهای چند رنگ را در لیوان، به صورت رولی و از همه هیجان\u200Cانگیزتر به صورت خرده شیشه درست می\u200Cکنند و برای انواع مراسم و جشن\u200Cها و مهمانی\u200Cها سفره را با آن رنگین می\u200Cکنند.");
         ghaza13.setGheymat("2500");
 
@@ -255,7 +241,6 @@ public class DataFakerGenerator {
         ghaza14.setNomre(5);
         ghaza14.setMojodi(true);
         ghaza14.setId_noeGhaza(7);
-        ghaza14.setType("خورشتی");
         ghaza14.setTozih("خورشت قیمه معمولا به یه روش کلی و مرسوم پخته میشه، ولی چرا خورشت قیمه بعضی ها خیلی خوشمزه تر و خوش عطر تر از بقیه اس؟؟ به نظر من دلیل اصلی خوشمزه شدن قیمه تجربه داشتن در آشپزیه، اما یه دلیل دیگه هم هست که خیلی مهمه، اونم ادویه هایی که تو این خورشت استفاده میشه بعلاوه فوت و فن های پختنشه. در این مطلب علاوه بر آموزش مرحله به مرحله پخت خورشت قیمه درباره این ادویه ها و نکات هم توضیح میدم.");
         ghaza14.setGheymat("22000");
 
@@ -267,7 +252,6 @@ public class DataFakerGenerator {
         ghaza16.setNomre(4);
         ghaza16.setId_noeGhaza(6);
         ghaza16.setMojodi(true);
-        ghaza16.setType("صبحانه");
         ghaza16.setTozih("با توجه به این توصیه، استفاده از تخم\u200Cمرغ عسلی یا نیمروهای نیم\u200Cپز در این دوران به\u200Cهیچ\u200Cعنوان توصیه نمی\u200Cشود. حالا اگر جزو طرفداران نیمرو هستید و نمی\u200Cدانید که چطور می\u200Cتوان از پخت کامل آن در این دوران مطمئن شد، بهتر است که موارد زیر را قبل از اقدام به پختن نیمرو در نظر بگیرید.");
         ghaza16.setGheymat("5800");
 
@@ -279,7 +263,6 @@ public class DataFakerGenerator {
         ghaza17.setNomre(4);
         ghaza17.setId_noeGhaza(1);
         ghaza17.setMojodi(false);
-        ghaza17.setType("فست فود");
         ghaza17.setTozih("هات داگ پنیری جز غذاهای ساندویچی به شمار میره و خب با این تفسیر بچه ها عاشقش هستند. این فست فود به خاطر شکل جذاب و پنیر فراوانش محبوبیت زیادی داره. حالا اگه در کنارش سس قارچ هم باشه که دیگه هیچ کس نمی تونه ازش بگذره. میشه گفت هات داگ هم مثل تمام غذاهای فست فود ضرر داره. چون به هر حال پنیر پیتزا چربی بالایی داره. از طرفی هات داگ باید سرخ بشه. اما در کل با وجود تمام مضراتش باز بچه ها و حتی بزرگترا دوستش دارند و معمولا هر وقت قراره غذای بیرون خورده بشه قطعا هات داگ هم جز لیست هست");
         ghaza17.setGheymat("15000");
 
@@ -290,7 +273,6 @@ public class DataFakerGenerator {
         ghaza18.setNomre(3);
         ghaza18.setId_noeGhaza(4);
         ghaza18.setMojodi(true);
-        ghaza18.setType("دریایی");
         ghaza18.setTozih("میگو سوخاری یکی از غذاهای دریایی بسیار خوش طعم است که خواص زیادی هم دارد. اگر میگو سوخاری رستورانی از میگو سوخاری هایی که در منزل تهیه می کنید خوشمزه تر است پس با این مطلب همراه باشید؛ چون قصد داریم میگو سوخاری رستورانی را به خانه هایتان بیاوریم. در این مطلب دو روش برای تهیه میگو سوخاری خوشمزه توضیح داده ایم: یکی از آن ها میگو سوخاری با ماءالشعیر بوده و دیگری میگو سوخاری فرانسوی. هر کدام از روش ها را که دوست داشتید، امتحان کنید و تجربیات خود را در قسمت دیدگاه ها با ما به اشتراک بگذارید. ");
         ghaza18.setGheymat("19300");
 
@@ -302,7 +284,6 @@ public class DataFakerGenerator {
         ghaza19.setNomre(3);
         ghaza19.setId_noeGhaza(2);
         ghaza19.setMojodi(true);
-        ghaza19.setType("پیتزا");
         ghaza19.setTozih("پیتزای مارگاریتا یک پیتزای کلاسیک ایتالیایی با خمیر نازک هست که روی آن با پنیر موزارلا ، گوجه فرنگی و ریحان تازه پر می شود البته باید یک سس گوجه تازه هم درست کرد که مواد این سس هم گوجه فرنگی تازه ، روغن زیتون ، چند حبه سیر ، نمک و فلفل و کمی آویشن هست.\n" +
                 "\n" +
                 "طرز تهیه پیتزا مارگاریتا با خمیر پیتزای ایتالیایی کاملا یک وعده خوشمزه هست و تنها چیزی که در این پیتزا مهمه خمیر پیتزای ایتالیایی هست . اگه طبق این دستور پیش بروید می تونید بهترین خمیر پیتزا رو درست کنید نگران درست کردن خمیر نباشید اگه خیلی چسبناک بود کمی آرد و اگه خیلی سفت بود با کمی آب مشکل حل میشه البته وقتی میگم کمی یعنی هر بار 1 قاشق غذاخوری آب یا آرد اضافه کنید و خمیر را ورز بدین و اگه نیاز بود دوباره تکرار کنید.");
@@ -315,7 +296,6 @@ public class DataFakerGenerator {
         ghaza20.setNomre(5);
         ghaza20.setId_noeGhaza(6);
         ghaza20.setMojodi(true);
-        ghaza20.setType("صبحانه");
         ghaza20.setTozih("نان و پنیر خوراکی است که در سفره اکثر ایرانی\u200Cها وجود دارد. معمولا این خوراک را با چاشنی\u200Cهایی مثل انگور، خرما، گردو، سبزی و خیار و گوجه، به عنوان صبحانه، عصرانه و حتی شام میل می\u200Cکنند.\n" +
                 "\n" +
                 "در زیر به خواص و نحوه مصرف نان و پنیر و سبزی می\u200Cپردازیم.\n" +
@@ -330,7 +310,6 @@ public class DataFakerGenerator {
         ghaza21.setNomre(5);
         ghaza21.setId_noeGhaza(7);
         ghaza21.setMojodi(true);
-        ghaza21.setType("خورشتی");
         ghaza21.setTozih("چلو ماهیچه یکی از غذا\u200Cهای اصیل ایرانی خاصه مهمانی\u200Cها و مناسبت\u200Cهای ویژه می\u200Cباشد. این غذای خوشمزه و اصیل ایرانی به دلیل طعم خاص و فوق العاده و مواد اولیه بسیار عالی در تهیه آن طرفداران بسیاری نیز دارد. البته طبخ چلو ماهیچه و زمان مورد نیاز برای آماده\u200Cسازی آن مشکل و زیاد می\u200Cباشد و برای ایجاد طعم خاص آن باید مهارت و فوت و فن لازمه را برای این غذا داشته باشید که البته این امر نیز با توجه به ریزه کاری\u200Cهای بیان شده در این دستور پخت و تجربه آشپزی شما قابل حل می\u200Cباشد.");
         ghaza21.setGheymat("48000");
 
@@ -363,7 +342,7 @@ public class DataFakerGenerator {
     public static List<BazKhord> getComments() {
         List<BazKhord> list = new ArrayList<>();
         BazKhord bazKhord = new BazKhord();
-        bazKhord.setId_ghaza(2);
+        bazKhord.setIdGhaza(2);
         bazKhord.setId_moshtari(1);
         bazKhord.setRating(3);
         bazKhord.setMant("غذای خوبی بود اما سرد سرو شد");
@@ -371,30 +350,54 @@ public class DataFakerGenerator {
 
         BazKhord bazKhord1 = new BazKhord();
         bazKhord1.setMant("عالی بود خدمات هم درجه یک بود");
-        bazKhord1.setId_ghaza(2);
+        bazKhord1.setIdGhaza(2);
         bazKhord1.setId_moshtari(2);
         bazKhord1.setRating(4);
         bazKhord1.setTarikh(" ساعت 22:10 این باز خورد را");
 
         BazKhord bazKhord3 = new BazKhord();
         bazKhord3.setMant("افتضاح بود");
-        bazKhord3.setId_ghaza(4);
+        bazKhord3.setIdGhaza(4);
         bazKhord3.setRating(1);
         bazKhord3.setId_moshtari(3);
         bazKhord3.setTarikh(" ساعت 22:10 این باز خورد را");
 
         BazKhord bazKhord2 = new BazKhord();
         bazKhord2.setMant("ممنون از غذای خوبیتون");
-        bazKhord2.setId_ghaza(6);
+        bazKhord2.setIdGhaza(6);
         bazKhord2.setRating(5);
         bazKhord2.setId_moshtari(2);
         bazKhord2.setTarikh(" ساعت 16:44 این باز خورد را");
+
+        BazKhord bazKhord4 = new BazKhord();
+        bazKhord4.setMant("همه چیز عالی بود متشکر");
+        bazKhord4.setIdGhaza(5);
+        bazKhord4.setRating(4);
+        bazKhord4.setId_moshtari(5);
+        bazKhord4.setTarikh(" ساعت 21:44 این باز خورد را");
+
+        BazKhord bazKhord6 = new BazKhord();
+        bazKhord6.setMant("خوب نبود");
+        bazKhord6.setIdGhaza(11);
+        bazKhord6.setRating(2);
+        bazKhord6.setId_moshtari(4);
+        bazKhord6.setTarikh(" ساعت 21:44 این باز خورد را");
+
+        BazKhord bazKhord7 = new BazKhord();
+        bazKhord7.setMant("غذا کمی شور بود ولی بقیه چیز ها خوب بود");
+        bazKhord7.setIdGhaza(9);
+        bazKhord7.setRating(3);
+        bazKhord7.setId_moshtari(2);
+        bazKhord7.setTarikh(" ساعت 21:44 این باز خورد را");
 
 
         list.add(bazKhord1);
         list.add(bazKhord2);
         list.add(bazKhord);
         list.add(bazKhord3);
+        list.add(bazKhord4);
+        list.add(bazKhord6);
+        list.add(bazKhord7);
         return list;
     }
 

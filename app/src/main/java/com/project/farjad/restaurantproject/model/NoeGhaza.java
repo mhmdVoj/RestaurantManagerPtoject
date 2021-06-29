@@ -13,8 +13,6 @@ public class NoeGhaza implements Parcelable {
     @PrimaryKey(autoGenerate = true) private long id;
     private String name;
     private int imgResource;
-
-
     //this not in database
     @Ignore private boolean isChecked = false;
 

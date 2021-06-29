@@ -12,15 +12,17 @@ import kotlinx.android.synthetic.main.activity_add_moshtari.*
 import java.util.*
 
 class AddMoshtariActivity : AppCompatActivity() {
-    lateinit var viewModel: MoshtariChangeViewModel
+
+    private val viewModel: MoshtariChangeViewModel by lazy {
+        ViewModelProvider(
+            this,
+            MainViewModelFactory(AppDatabase.getAppDatabase(this).restaurantDao())
+        ).get(MoshtariChangeViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_moshtari)
-        viewModel = ViewModelProvider(
-            this,
-            MainViewModelFactory(AppDatabase.getAppDatabase(this).restaurantDao())
-        ).get(MoshtariChangeViewModel::class.java)
 
         btn_back_new_moshtari.setOnClickListener {
             onBackPressed()
@@ -51,10 +53,12 @@ class AddMoshtariActivity : AppCompatActivity() {
     private fun saveMoshtari() {
         val ran = Random()
         val mosh = Moshtari()
-        mosh.name = "${edt_select_fistName_moshtari.text} ${edt_select_lastName_moshtari.text}"
-        mosh.shomareTel = edt_select_tel_moshtari.text.toString()
-        mosh.address = edt_select_address_moshtari.text.toString()
-        mosh.shomareEshtrrak = (ran.nextInt(1000) + 1).toString()
+        with(mosh){
+            name = "${edt_select_fistName_moshtari.text} ${edt_select_lastName_moshtari.text}"
+            shomareTel = edt_select_tel_moshtari.text.toString()
+            address = edt_select_address_moshtari.text.toString()
+            shomareEshtrrak = (ran.nextInt(1000) + 1).toString()
+        }
         viewModel.addMoshtari(mosh)
     }
 }

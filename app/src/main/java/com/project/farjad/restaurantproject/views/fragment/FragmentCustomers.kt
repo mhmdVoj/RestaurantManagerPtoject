@@ -29,7 +29,11 @@ import com.project.farjad.restaurantproject.views.ListReportActivity
 import kotlinx.android.synthetic.main.fragment_customer.*
 
 public class FragmentCustomers : Fragment(), MoshtariAdapter.onMoshtariListItemListener {
-    lateinit var viewModel: CustomerFragmentViewModel
+
+    val viewModel : CustomerFragmentViewModel by lazy (LazyThreadSafetyMode.NONE) {
+        ViewModelProvider(this,MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao()))
+            .get(CustomerFragmentViewModel::class.java)
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,8 +51,6 @@ public class FragmentCustomers : Fragment(), MoshtariAdapter.onMoshtariListItemL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this,MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao()))
-            .get(CustomerFragmentViewModel::class.java)
         viewModel.allMoshtari.observe(viewLifecycleOwner, Observer {
             initRecyclerViewMoshtari(it)
             analysis_txt_sum_customer.text = "تعداد مشتریان :  ${it.size}"

@@ -53,6 +53,9 @@ public interface RestaurantDao {
     @Insert
     long addTypeFood(NoeGhaza noeGhaza);
 
+    @Query("SELECT * FROM noeghaza WHERE id = :id")
+    NoeGhaza getNoeGhaza(long id);
+
 
     //Comments Database Functions -->
     @Insert

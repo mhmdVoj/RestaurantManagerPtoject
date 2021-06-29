@@ -106,15 +106,16 @@ class AddReserveActivity : AppCompatActivity(),
     }
 
     private fun addReserveDatabase() {
-        val reserve = Reserve()
-        reserve.idMoshtari = moshId as Long
-        reserve.isVip = isVpn
-        reserve.rozeReserve = dayReserve
-        reserve.saatReserve =timeReserve
-        reserve.shomareMiz = edt_select_shomare_miz_reserve.text.toString()
-        reserve.tarikhReserve = dateReserve
-        reserve.tarikhSabtReserve = CalenderGenerator.getCurrentShamsidate()
-        reserve.tedad = edt_select_count_reserve.text.toString()
+        val reserve = Reserve().apply {
+            idMoshtari = moshId as Long
+            isVip = isVpn
+            rozeReserve = dayReserve
+            saatReserve =timeReserve
+            shomareMiz = edt_select_shomare_miz_reserve.text.toString()
+            tarikhReserve = dateReserve
+            tarikhSabtReserve = CalenderGenerator.getCurrentShamsidate()
+            tedad = edt_select_count_reserve.text.toString()
+        }
         viewModel.addReserve(reserve)
         finish()
     }

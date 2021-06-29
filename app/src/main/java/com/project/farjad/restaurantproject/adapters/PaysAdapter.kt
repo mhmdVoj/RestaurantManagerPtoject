@@ -1,5 +1,6 @@
 package com.project.farjad.restaurantproject.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,10 @@ import com.project.farjad.restaurantproject.model.Pardakhtha
 
 class PaysAdapter(private val payList : MutableList<Pardakhtha>) : RecyclerView.Adapter<PaysAdapter.PaysViewHolder>() {
 
+    private var filterPayList : MutableList<Pardakhtha>
+    init {
+        filterPayList= payList
+    }
 
     class PaysViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val txt_date_pay : TextView = itemView.findViewById(R.id.txt_date_pay)
@@ -38,21 +43,31 @@ class PaysAdapter(private val payList : MutableList<Pardakhtha>) : RecyclerView.
         }
     }
 
+    fun filterFactor(string: String){
+        filterPayList = ArrayList()
+        payList.forEach {
+            if (it.tarikhPardakht == string){
+                filterPayList.add(it)
+            }
+        }
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PaysViewHolder(LayoutInflater.from(parent.context)
         .inflate(R.layout.pardakht_item_layout,
     parent,false))
 
-    override fun getItemCount(): Int =payList.size
+    override fun getItemCount(): Int =filterPayList.size
 
     override fun onBindViewHolder(holder: PaysViewHolder, position: Int) {
-        holder.bindPay(payList[position])
+        holder.bindPay(filterPayList[position])
         holder.layout_expended_pays.setOnClickListener {
-            if (!payList[position].isExpend){
+            if (!filterPayList[position].isExpend){
                 holder.layout_detail_pay.visibility = View.VISIBLE
-                payList[position].isExpend = true
+                filterPayList[position].isExpend = true
             }else{
                 holder.layout_detail_pay.visibility = View.GONE
-                payList[position].isExpend = false
+                filterPayList[position].isExpend = false
             }
         }
     }

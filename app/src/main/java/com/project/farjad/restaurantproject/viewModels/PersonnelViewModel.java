@@ -22,25 +22,7 @@ public class PersonnelViewModel extends ViewModel {
 
     public PersonnelViewModel(RestaurantDao restaurantDao) {
         this.restaurantDao = restaurantDao;
-        restaurantDao.getPersonnel()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<List<Personel>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onSuccess(List<Personel> personels) {
-                        allPersonels.setValue(personels);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-                });
+        loadPersonnel();
         restaurantDao.getSemat()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -64,6 +46,28 @@ public class PersonnelViewModel extends ViewModel {
 
     public void deletePersonnel(Personel personel){
         restaurantDao.deletePersonnel(personel);
+    }
+
+    public void loadPersonnel(){
+        restaurantDao.getPersonnel()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<List<Personel>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(List<Personel> personels) {
+                        allPersonels.setValue(personels);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
     }
 
     public LiveData<List<Personel>> getAllPersonels() {

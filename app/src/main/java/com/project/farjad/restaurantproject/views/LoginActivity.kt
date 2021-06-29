@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
         })
 
         btn_vorod.setOnClickListener {
-            if (edt_user_name.text.toString() == "admin99"){
+            if (edt_user_name.text.toString() == "admin"){
                 if (edt_pass.text.toString() == "1234"){
                     viewModel.addData()
                     prefsSetting.saveUser(edt_user_name.text.toString(),edt_pass.text.toString())

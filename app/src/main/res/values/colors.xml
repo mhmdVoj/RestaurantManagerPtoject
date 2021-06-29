@@ -20,5 +20,6 @@
     <color name="colorGreenLight">#28df99</color>
     <color name="colorGreenDark">#335d2d</color>
     <color name="colorBlueLight">#2979FF</color>
+    <color name="color_dark_pink">#AA00FF</color>
 
 </resources>

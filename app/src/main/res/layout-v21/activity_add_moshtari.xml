@@ -111,7 +111,8 @@
             android:layout_gravity="center"
             android:layout_margin="24dp"
             android:textSize="18sp"
-            style="@style/DefaultTextStyle" />
+            style="@style/DefaultTextStyle"
+            android:backgroundTint="@color/colorGreenLight" />
     </LinearLayout>
 
 

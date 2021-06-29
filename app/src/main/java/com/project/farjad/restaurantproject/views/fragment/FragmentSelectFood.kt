@@ -40,8 +40,11 @@ class FragmentSelectFood(private val callBack : onSelcetionFoodListener) : Fragm
         viewModel = ViewModelProvider(this,MainViewModelFactory(AppDatabase.getAppDatabase(context).restaurantDao())).get(FoodChangeViewModel::class.java)
 
 
-        viewModel.allFoods.observe(viewLifecycleOwner, Observer {
-            initRecyclerView(it,view)
+        viewModel.allFoods.observe(viewLifecycleOwner, Observer {foods->
+            foods.forEach {
+                it.type = viewModel.getTypeGhaza(it.id_noeGhaza)
+            }
+            initRecyclerView(foods,view)
         })
 
         edt_search_riz.addTextChangedListener(object : TextWatcher {

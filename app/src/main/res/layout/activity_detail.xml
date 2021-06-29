@@ -20,7 +20,7 @@
                 android:layout_height="230dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
-                app:actualImageResource="@drawable/omlet"
+                app:placeholderImage="@drawable/place_holder"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

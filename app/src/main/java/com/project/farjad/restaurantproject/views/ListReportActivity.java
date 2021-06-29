@@ -62,6 +62,7 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
     private ReportViewModel viewModel;
     private ImageView btn_show_search_report;
     private EditText edt_search_report;
+    private EditText edt_search_report_comments;
     private int typeReport;
 
     @Override
@@ -83,7 +84,7 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
         btn_show_search_report.setOnClickListener(view -> {
             switch (typeReport){
                 case 1:
-
+                    edt_search_report_comments.setVisibility(View.VISIBLE);
                     break;
                 case 2:
                     edt_search_report.setVisibility(View.VISIBLE);
@@ -93,10 +94,29 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
                     checkEmptyListReserve();
                     break;
                 case 4:
+                    datePickerDialogPays();
                     break;
                 case 5:
-                    datePickerDialog();
+                    datePickerDialogFactor();
                     break;
+            }
+        });
+
+        edt_search_report_comments.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                commentAdapter.filterCustomers(charSequence.toString());
+                checkEmptyListComment();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
@@ -108,7 +128,6 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Toast.makeText(ListReportActivity.this,"تاریخ مورد نظر را انتخاب کنید",Toast.LENGTH_SHORT).show();
                 moshtariAdapter.filterCustomers(charSequence.toString());
                 checkEmptyListCustomer();
             }
@@ -120,7 +139,35 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
         });
     }
 
-    private void datePickerDialog() {
+    private void datePickerDialogPays() {
+        PersianDatePickerDialog picker = new PersianDatePickerDialog(this)
+                .setPositiveButtonString("باشه")
+                .setNegativeButton("بیخیال")
+                .setTodayButton("امروز")
+                .setTodayButtonVisible(true)
+                .setMinYear(1300)
+                .setMaxYear(PersianDatePickerDialog.THIS_YEAR)
+                .setActionTextColor(Color.GRAY)
+                .setTypeFace(ResourcesCompat.getFont(this, R.font.dana_medium))
+                .setTitleType(PersianDatePickerDialog.WEEKDAY_DAY_MONTH_YEAR)
+                .setShowInBottomSheet(true)
+                .setListener(new Listener() {
+                    @Override
+                    public void onDateSelected(PersianCalendar persianCalendar) {
+                        String str = persianCalendar.getPersianLongDate();
+                        paysAdapter.filterFactor(str);
+                        checkEmptyListPay();
+                    }
+
+                    @Override
+                    public void onDismissed() {
+
+                    }
+                });
+        picker.show();
+    }
+
+    private void datePickerDialogFactor() {
         PersianDatePickerDialog picker = new PersianDatePickerDialog(this)
                 .setPositiveButtonString("باشه")
                 .setNegativeButton("بیخیال")
@@ -145,7 +192,6 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
 
                     }
                 });
-
         picker.show();
     }
 
@@ -153,7 +199,6 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
         String key = getIntent().getStringExtra("extra");
         switch (key) {
             case "comment":
-                btn_show_search_report.setVisibility(View.GONE);
                 typeReport = 1;
                 txt_name_report.setText("بازخورد ها");
                 viewModel.getAllBazkhordWithCustomer().observe(this, moshtariWithBazkhords -> {
@@ -161,7 +206,7 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
                     for (int i = 0; i < moshtariWithBazkhords.size(); i++) {
                         for (int j = 0; j < moshtariWithBazkhords.get(i).bazKhordList.size(); j++) {
                             moshtariWithBazkhords.get(i).bazKhordList.get(j).setNameMosh(moshtariWithBazkhords.get(i).moshtari.getName());
-                            moshtariWithBazkhords.get(i).bazKhordList.get(j).setNameGhaz(viewModel.getGhazaName(moshtariWithBazkhords.get(i).bazKhordList.get(j).getId_ghaza()));
+                            moshtariWithBazkhords.get(i).bazKhordList.get(j).setNameGhaz(viewModel.getGhazaName(moshtariWithBazkhords.get(i).bazKhordList.get(j).getIdGhaza()));
                             allBaz.add(moshtariWithBazkhords.get(i).bazKhordList.get(j));
                         }
                     }
@@ -196,7 +241,6 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
                 txt_name_report.setText("ليست رزرو ها");
                 break;
             case "pays":
-                btn_show_search_report.setVisibility(View.GONE);
                 typeReport = 4;
                 viewModel.getAllPays().observe(this, pardakhthas -> {
                     for (int i = 0; i < pardakhthas.size(); i++) {
@@ -244,7 +288,6 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
 
     private void payTheFactor(Factor factor) {
         Pardakhtha pardakhtha = new Pardakhtha();
-        pardakhtha.setIdFactor(factor.getId());
         pardakhtha.setNoePardakht("نقدی");
         pardakhtha.setExpend(false);
         pardakhtha.setShomareFactor(String.valueOf(factor.getShomareFactor()));
@@ -356,6 +399,7 @@ public class ListReportActivity extends AppCompatActivity implements MoshtariAda
         txt_name_report = findViewById(R.id.txt_name_report);
         btn_show_search_report = findViewById(R.id.btn_show_search_report);
         edt_search_report = findViewById(R.id.edt_search_report);
+        edt_search_report_comments = findViewById(R.id.edt_search_report_comments);
     }
 
     @Override

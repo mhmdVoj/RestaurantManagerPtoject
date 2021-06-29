@@ -2,10 +2,21 @@ package com.project.farjad.restaurantproject.model;
 
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(foreignKeys = {
+        @ForeignKey(entity = Moshtari.class,
+        parentColumns = "id",
+        childColumns = "id_moshtari",
+        onDelete = ForeignKey.RESTRICT),
+        @ForeignKey(entity = Ghaza.class,
+        parentColumns = "id",
+        childColumns = "idGhaza",
+        onDelete = ForeignKey.RESTRICT,
+        onUpdate = ForeignKey.CASCADE)
+})
 public class BazKhord {
     @PrimaryKey(autoGenerate = true)
     private long id;
@@ -13,7 +24,7 @@ public class BazKhord {
     private String tarikh;
     private long id_moshtari;
     private int rating;
-    private long id_ghaza;
+    private long idGhaza;
     private int nomre;
 
     public long getId() {
@@ -56,16 +67,12 @@ public class BazKhord {
         this.id_moshtari = id_moshtari;
     }
 
-    public long getId_ghaza() {
-        return id_ghaza;
-    }
 
-    public void setId_ghaza(long id_ghaza) {
-        this.id_ghaza = id_ghaza;
-    }
 
-    @Ignore private String nameMosh;
-    @Ignore private String nameGhaz;
+    @Ignore
+    private String nameMosh;
+    @Ignore
+    private String nameGhaz;
 
     public String getNameMosh() {
         return nameMosh;
@@ -89,5 +96,13 @@ public class BazKhord {
 
     public void setNameGhaz(String nameGhaz) {
         this.nameGhaz = nameGhaz;
+    }
+
+    public long getIdGhaza() {
+        return idGhaza;
+    }
+
+    public void setIdGhaza(long idGhaza) {
+        this.idGhaza = idGhaza;
     }
 }
